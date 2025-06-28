@@ -43,5 +43,50 @@
     "rating": 4.4,
     "website": "https://brokkoli.cl/jobs",
     "tags": ["operations", "tech", "marketing"]
+  },
+  {
+    "id": "foodtech-4",
+    "name": "Justo",
+    "logo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=100&h=100&fit=crop&crop=center",
+    "description": "Supermercado online que ofrece productos orgánicos y sustentables directamente del productor al consumidor.",
+    "industry": "Organic Food E-commerce",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Sostenibilidad", "Alimentación Saludable", "Transparencia"],
+    "benefits": ["Productos Orgánicos", "Horarios Flexibles", "Misión Sostenible"],
+    "openPositions": ["Operations Manager", "Procurement Specialist", "Growth Marketing"],
+    "rating": 4.5,
+    "website": "https://www.justo.cl/jobs",
+    "tags": ["operations", "marketing", "strategy"]
+  },
+  {
+    "id": "foodtech-5",
+    "name": "Kanu",
+    "logo": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma B2B que conecta restaurantes con proveedores, optimizando la cadena de suministro gastronómica.",
+    "industry": "B2B FoodTech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Eficiencia Operacional", "Innovación B2B", "Customer Success"],
+    "benefits": ["Trabajo Remoto", "Aprendizaje de Industria", "Equity Options"],
+    "openPositions": ["Sales Executive", "Account Manager", "Backend Developer"],
+    "rating": 4.3,
+    "website": "https://www.kanu.cl/careers",
+    "tags": ["sales", "operations", "tech"]
+  },
+  {
+    "id": "foodtech-6",
+    "name": "Eatsy",
+    "logo": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=100&h=100&fit=crop&crop=center",
+    "description": "Aplicación de descubrimiento gastronómico que conecta usuarios con restaurantes y experiencias culinarias únicas.",
+    "industry": "Food Discovery",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Pasión por la Gastronomía", "Innovation", "Community Building"],
+    "benefits": ["Experiencias Gastronómicas", "Flexibilidad", "Networking"],
+    "openPositions": ["Content Creator", "Mobile Developer", "Partnership Manager"],
+    "rating": 4.2,
+    "website": "https://www.eatsy.cl/jobs",
+    "tags": ["marketing", "tech", "strategy"]
   }
 ] 

@@ -254,6 +254,93 @@ app.post('/api/recommendations', (req, res) => {
   }
 });
 
+// Add new company (Admin endpoint)
+app.post('/api/companies', (req, res) => {
+  try {
+    const {
+      name,
+      logo,
+      description,
+      industry,
+      size,
+      location,
+      culture,
+      benefits,
+      openPositions,
+      rating,
+      website,
+      tags
+    } = req.body;
+
+    // Validation
+    if (!name || !description || !industry || !size || !location) {
+      return res.status(400).json({ 
+        error: 'Required fields: name, description, industry, size, location' 
+      });
+    }
+
+    const validIndustries = [
+      'fintech', 'banking', 'ecommerce', 'foodtech', 
+      'hrtech', 'consulting', 'telecommunications', 
+      'mining', 'retail'
+    ];
+
+    if (!validIndustries.includes(industry.toLowerCase())) {
+      return res.status(400).json({ 
+        error: 'Invalid industry. Valid options: ' + validIndustries.join(', ')
+      });
+    }
+
+    // Generate unique ID
+    const existingCompanies = getCompanies();
+    const industryCompanies = existingCompanies.filter(c => c.industry.toLowerCase() === industry.toLowerCase());
+    const nextId = industryCompanies.length + 1;
+    const companyId = `${industry.toLowerCase()}-${nextId}`;
+
+    // Create company object
+    const newCompany = {
+      id: companyId,
+      name: name.trim(),
+      logo: logo || `https://images.unsplash.com/photo-1560472355-536de3962603?w=100&h=100&fit=crop&crop=center`,
+      description: description.trim(),
+      industry: industry.charAt(0).toUpperCase() + industry.slice(1).toLowerCase(),
+      size: size.toLowerCase(),
+      location: location.trim(),
+      culture: Array.isArray(culture) ? culture : culture ? [culture] : [],
+      benefits: Array.isArray(benefits) ? benefits : benefits ? [benefits] : [],
+      openPositions: Array.isArray(openPositions) ? openPositions : openPositions ? [openPositions] : [],
+      rating: rating ? parseFloat(rating) : 4.0,
+      website: website || `https://${name.toLowerCase().replace(/\s+/g, '')}.com`,
+      tags: Array.isArray(tags) ? tags : tags ? tags.split(',').map(t => t.trim()) : []
+    };
+
+    // Read existing companies from industry file
+    const industryFile = industry.toLowerCase();
+    const filePath = path.join(__dirname, 'data', 'companies', `${industryFile}.json`);
+    
+    let companies = [];
+    if (fs.existsSync(filePath)) {
+      const data = fs.readFileSync(filePath, 'utf8');
+      companies = JSON.parse(data);
+    }
+
+    // Add new company
+    companies.push(newCompany);
+
+    // Save to file
+    fs.writeFileSync(filePath, JSON.stringify(companies, null, 2));
+
+    res.status(201).json({
+      message: 'Company created successfully',
+      company: newCompany
+    });
+
+  } catch (error) {
+    console.error('Error creating company:', error);
+    res.status(500).json({ error: 'Error creating company' });
+  }
+});
+
 // 404 handler
 app.use('*', (req, res) => {
   res.status(404).json({ error: 'Route not found' });

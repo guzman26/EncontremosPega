@@ -43,5 +43,50 @@
     "rating": 4.4,
     "website": "https://www.angloamerican.com/careers",
     "tags": ["operations", "strategy", "legal"]
+  },
+  {
+    "id": "mining-4",
+    "name": "BHP Chile",
+    "logo": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=100&h=100&fit=crop&crop=center",
+    "description": "Una de las compañías mineras más grandes del mundo, con operaciones de cobre en Chile enfocadas en innovación.",
+    "industry": "Mining",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Seguridad Primero", "Innovación Tecnológica", "Sustentabilidad"],
+    "benefits": ["Compensación Competitiva", "Desarrollo Global", "Programas de Salud"],
+    "openPositions": ["Process Engineer", "Maintenance Supervisor", "Environmental Analyst"],
+    "rating": 4.3,
+    "website": "https://www.bhp.com/careers/",
+    "tags": ["operations", "tech", "legal"]
+  },
+  {
+    "id": "mining-5",
+    "name": "Teck Carmen de Andacollo",
+    "logo": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=100&h=100&fit=crop&crop=center",
+    "description": "Operación minera canadiense especializada en cobre y oro, con fuerte compromiso ambiental y comunitario.",
+    "industry": "Mining",
+    "size": "medium",
+    "location": "La Serena, Chile",
+    "culture": ["Responsabilidad Social", "Excelencia Operacional", "Trabajo en Equipo"],
+    "benefits": ["Planes de Salud Premium", "Desarrollo Técnico", "Compensación Variable"],
+    "openPositions": ["Mining Engineer", "Community Relations", "Safety Coordinator"],
+    "rating": 4.2,
+    "website": "https://www.teck.com/careers/",
+    "tags": ["operations", "strategy", "legal"]
+  },
+  {
+    "id": "mining-6",
+    "name": "Lundin Mining Chile",
+    "logo": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=100&h=100&fit=crop&crop=center",
+    "description": "Compañía minera canadiense con operaciones de cobre, zinc y níquel, enfocada en prácticas sustentables.",
+    "industry": "Mining",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación", "Sustentabilidad", "Performance Excellence"],
+    "benefits": ["Desarrollo Internacional", "Seguro de Salud", "Bonificaciones"],
+    "openPositions": ["Metallurgist", "Project Manager", "Financial Analyst"],
+    "rating": 4.1,
+    "website": "https://www.lundinmining.com/careers/",
+    "tags": ["operations", "finance", "strategy"]
   }
 ] 

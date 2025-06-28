@@ -27,6 +27,7 @@ export interface UserProfile {
     career?: string;
     semester?: string;
     university?: string;
+    level?: string;
   };
   interests?: string[];
   companyPreferences?: {

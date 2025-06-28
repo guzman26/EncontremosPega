@@ -7,12 +7,28 @@
     "industry": "Banking",
     "size": "large",
     "location": "Santiago, Chile",
-    "culture": ["Trabajo en Equipo", "Crecimiento Profesional", "Diversidad e Inclusión"],
-    "benefits": ["Seguro de Salud", "Capacitación y Cursos", "Bonos por Desempeño"],
-    "openPositions": ["Software Engineer", "DevOps Engineer", "Cybersecurity Analyst"],
+    "culture": [
+      "Trabajo en Equipo",
+      "Crecimiento Profesional",
+      "Diversidad e Inclusión"
+    ],
+    "benefits": [
+      "Seguro de Salud",
+      "Capacitación y Cursos",
+      "Bonos por Desempeño"
+    ],
+    "openPositions": [
+      "Software Engineer",
+      "DevOps Engineer",
+      "Cybersecurity Analyst"
+    ],
     "rating": 4.2,
     "website": "https://portales.bancochile.cl/personas/trabaja-con-nosotros",
-    "tags": ["finance", "tech", "operations"]
+    "tags": [
+      "finance",
+      "tech",
+      "operations"
+    ]
   },
   {
     "id": "banking-2",
@@ -22,12 +38,28 @@
     "industry": "Banking",
     "size": "large",
     "location": "Santiago, Chile",
-    "culture": ["Innovación y Tecnología", "Diversidad e Inclusión", "Responsabilidad Social"],
-    "benefits": ["Seguro de Salud", "Capacitación y Cursos", "Gimnasio/Wellness"],
-    "openPositions": ["Data Scientist", "Backend Developer", "Risk Analyst"],
+    "culture": [
+      "Innovación y Tecnología",
+      "Diversidad e Inclusión",
+      "Responsabilidad Social"
+    ],
+    "benefits": [
+      "Seguro de Salud",
+      "Capacitación y Cursos",
+      "Gimnasio/Wellness"
+    ],
+    "openPositions": [
+      "Data Scientist",
+      "Backend Developer",
+      "Risk Analyst"
+    ],
     "rating": 4.1,
     "website": "https://www.santander.cl/trabaja-con-nosotros",
-    "tags": ["finance", "analytics", "tech"]
+    "tags": [
+      "finance",
+      "analytics",
+      "tech"
+    ]
   },
   {
     "id": "banking-3",
@@ -37,11 +69,182 @@
     "industry": "Banking",
     "size": "large",
     "location": "Santiago, Chile",
-    "culture": ["Impacto Social", "Servicio Público", "Trabajo en Equipo"],
-    "benefits": ["Estabilidad Laboral", "Seguro de Salud", "Capacitación y Cursos"],
-    "openPositions": ["Business Analyst", "Software Developer", "Project Manager"],
-    "rating": 4.0,
+    "culture": [
+      "Impacto Social",
+      "Servicio Público",
+      "Trabajo en Equipo"
+    ],
+    "benefits": [
+      "Estabilidad Laboral",
+      "Seguro de Salud",
+      "Capacitación y Cursos"
+    ],
+    "openPositions": [
+      "Business Analyst",
+      "Software Developer",
+      "Project Manager"
+    ],
+    "rating": 4,
     "website": "https://www.bancoestado.cl/nosotros/trabaja-con-nosotros",
-    "tags": ["finance", "operations", "strategy"]
+    "tags": [
+      "finance",
+      "operations",
+      "strategy"
+    ]
+  },
+  {
+    "id": "banking-4",
+    "name": "Banco Security",
+    "logo": "https://images.unsplash.com/photo-1560472355-536de3962603?w=100&h=100&fit=crop&crop=center",
+    "description": "Banco privado especializado en banca personas y empresas, con fuerte enfoque en servicios personalizados y tecnología.",
+    "industry": "Banking",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": [
+      "Excelencia en Servicio",
+      "Trabajo en Equipo",
+      "Innovación y Tecnología"
+    ],
+    "benefits": [
+      "Seguro de Salud",
+      "Capacitación y Cursos",
+      "Bonos por Desempeño"
+    ],
+    "openPositions": [
+      "Analista de Riesgo",
+      "Frontend Developer",
+      "Ejecutivo Comercial"
+    ],
+    "rating": 4.0,
+    "website": "https://www.security.cl/trabaja-con-nosotros",
+    "tags": [
+      "finance",
+      "tech",
+      "sales"
+    ]
+  },
+  {
+    "id": "banking-5",
+    "name": "Banco Falabella",
+    "logo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop&crop=center",
+    "description": "Banco retail del grupo Falabella, especializado en productos financieros para el consumo y tarjetas de crédito.",
+    "industry": "Banking",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": [
+      "Orientación al Cliente",
+      "Innovación y Tecnología",
+      "Trabajo en Equipo"
+    ],
+    "benefits": [
+      "Descuentos Corporativos",
+      "Seguro de Salud",
+      "Capacitación y Cursos"
+    ],
+    "openPositions": [
+      "Analista de Crédito",
+      "Product Manager",
+      "Backend Developer"
+    ],
+    "rating": 4.1,
+    "website": "https://www.bancofalabella.cl/trabaja-con-nosotros",
+    "tags": [
+      "finance",
+      "product",
+      "tech"
+    ]
+  },
+  {
+    "id": "banking-6",
+    "name": "Banco Ripley",
+    "logo": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=100&h=100&fit=crop&crop=center",
+    "description": "Banco retail especializado en financiamiento al consumo y servicios financieros para el retail.",
+    "industry": "Banking",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": [
+      "Agilidad",
+      "Orientación al Cliente",
+      "Innovación Digital"
+    ],
+    "benefits": [
+      "Descuentos en Tiendas",
+      "Seguro de Salud",
+      "Horarios Flexibles"
+    ],
+    "openPositions": [
+      "Risk Analyst",
+      "UX Designer",
+      "Data Scientist"
+    ],
+    "rating": 4.0,
+    "website": "https://www.bancoripley.cl/careers",
+    "tags": [
+      "finance",
+      "design",
+      "analytics"
+    ]
+  },
+  {
+    "id": "banking-7",
+    "name": "Banco Bice",
+    "logo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&h=100&fit=crop&crop=center",
+    "description": "Banco privado especializado en banca empresarial, inversión y servicios financieros especializados.",
+    "industry": "Banking",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": [
+      "Excelencia Profesional",
+      "Trabajo en Equipo",
+      "Innovación Financiera"
+    ],
+    "benefits": [
+      "Seguro de Salud Premium",
+      "Capacitación Especializada",
+      "Bonos por Rendimiento"
+    ],
+    "openPositions": [
+      "Investment Advisor",
+      "Corporate Banking",
+      "Fintech Developer"
+    ],
+    "rating": 4.2,
+    "website": "https://www.bice.cl/personas/trabaja-con-nosotros",
+    "tags": [
+      "finance",
+      "strategy",
+      "tech"
+    ]
+  },
+  {
+    "id": "banking-8",
+    "name": "Scotiabank Chile",
+    "logo": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100&h=100&fit=crop&crop=center",
+    "description": "Filial chilena del banco canadiense, enfocada en banca personas y empresas con servicios digitales innovadores.",
+    "industry": "Banking",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": [
+      "Diversidad e Inclusión",
+      "Innovación Digital",
+      "Responsabilidad Social"
+    ],
+    "benefits": [
+      "Seguro de Salud",
+      "Desarrollo Internacional",
+      "Capacitación y Cursos"
+    ],
+    "openPositions": [
+      "Digital Transformation",
+      "Software Engineer",
+      "Business Analyst"
+    ],
+    "rating": 4.1,
+    "website": "https://www.scotiabank.cl/personas/trabaja-con-nosotros",
+    "tags": [
+      "finance",
+      "tech",
+      "strategy"
+    ]
   }
-] 
+]

@@ -40,12 +40,6 @@ const CompanyPreferencesStep: React.FC<FormStepProps> = ({ data, onUpdate }) => 
 
   return (
     <>
-      <div className="step-header">
-        <h2 className="step-title">Tu empresa ideal</h2>
-        <p className="step-subtitle">
-          Define las características más importantes para ti en una empresa
-        </p>
-      </div>
 
       <div className="step-form">
         {/* Company Size */}

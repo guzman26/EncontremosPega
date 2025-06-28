@@ -8,12 +8,6 @@ const PersonalInfoStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
 
   return (
     <>
-      <div className="step-header">
-        <h2 className="step-title">¡Hola! 👋</h2>
-        <p className="step-subtitle">
-          Solo necesitamos saber tu nivel de experiencia para encontrar las mejores oportunidades
-        </p>
-      </div>
 
       <div className="step-form">
         <div className="form-group">

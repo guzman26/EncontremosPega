@@ -5,6 +5,7 @@ import AboutPage from '../pages/AboutPage';
 import ContactPage from '../pages/ContactPage';
 import OnboardingPage from '../pages/OnboardingPage';
 import RecommendationsPage from '../pages/RecommendationsPage';
+import AdminPage from '../pages/AdminPage';
 
 export const routes: RouteConfig[] = [
   {
@@ -36,6 +37,12 @@ export const routes: RouteConfig[] = [
     path: '/contact',
     element: ContactPage,
     title: 'Contacto - EncuentraPega',
+  },
+  {
+    path: '/admin-add-company',
+    element: AdminPage,
+    title: 'Admin Panel - EncuentraPega',
+    protected: true, // This route won't appear in navigation
   },
 ];
 

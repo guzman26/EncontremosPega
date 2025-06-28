@@ -34,17 +34,6 @@ const InterestsStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
 
   return (
     <>
-      <div className="step-header">
-        <h2 className="step-title">
-          ¿Qué áreas te apasionan? 
-          <span className="selection-counter">
-            {selectedInterests.length}/12
-          </span>
-        </h2>
-        <p className="step-subtitle">
-          Selecciona al menos 2 áreas empresariales que más te interesen. Esto nos ayudará a encontrar las empresas perfectas para ti.
-        </p>
-      </div>
 
       <div className="step-form">
         <div className="choice-grid">

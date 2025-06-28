@@ -80,7 +80,7 @@ const OnboardingPage: React.FC = () => {
   const isStepValid = () => {
     switch (currentStep) {
       case 0:
-        const personalInfo = formData.personalInfo;
+        const personalInfo = formData.personalInfo as any;
         return Boolean(personalInfo?.level);
       case 1:
         return formData.interests && formData.interests.length >= 2;

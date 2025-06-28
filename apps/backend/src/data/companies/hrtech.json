@@ -43,5 +43,50 @@
     "rating": 4.6,
     "website": "https://rankmi.com/careers",
     "tags": ["hr", "analytics", "tech"]
+  },
+  {
+    "id": "hrtech-4",
+    "name": "Cornerjob Chile",
+    "logo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma móvil que conecta candidatos con empleos por horas y trabajos de medio tiempo.",
+    "industry": "Job Matching",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Mobile First", "Inclusión Laboral", "Rapidez"],
+    "benefits": ["Trabajo Remoto", "Impacto Social", "Crecimiento Rápido"],
+    "openPositions": ["Mobile Developer", "Growth Manager", "Operations Lead"],
+    "rating": 4.2,
+    "website": "https://www.cornerjob.com/cl/jobs",
+    "tags": ["tech", "marketing", "operations"]
+  },
+  {
+    "id": "hrtech-5",
+    "name": "GetOnBoard",
+    "logo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=100&h=100&fit=crop&crop=center",
+    "description": "Portal de empleos especializado en trabajos de tecnología y startups en América Latina.",
+    "industry": "Tech Recruitment",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Tech Community", "Transparencia", "Networking"],
+    "benefits": ["Conexión con Startups", "Trabajo Remoto", "Eventos Tech"],
+    "openPositions": ["Community Manager", "Full Stack Developer", "Sales Executive"],
+    "rating": 4.4,
+    "website": "https://www.getonboard.com/jobs",
+    "tags": ["tech", "marketing", "sales"]
+  },
+  {
+    "id": "hrtech-6",
+    "name": "Despegar Empleos",
+    "logo": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma de empleos del grupo Despegar, especializada en turismo, tecnología y servicios.",
+    "industry": "Job Portal",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Diversidad", "Innovación", "Customer Experience"],
+    "benefits": ["Descuentos en Viajes", "Seguro de Salud", "Capacitación"],
+    "openPositions": ["Recruiter", "Content Manager", "Data Analyst"],
+    "rating": 4.1,
+    "website": "https://www.despegar.com/careers",
+    "tags": ["hr", "marketing", "analytics"]
   }
 ] 

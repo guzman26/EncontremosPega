@@ -35,12 +35,6 @@ const WorkPreferencesStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
 
   return (
     <>
-      <div className="step-header">
-        <h2 className="step-title">¡Último paso!</h2>
-        <p className="step-subtitle">
-          Define las condiciones de trabajo que mejor se adapten a tu estilo de vida
-        </p>
-      </div>
 
       <div className="step-form">
         {/* Location Preference */}
