@@ -6,6 +6,7 @@ import ContactPage from '../pages/ContactPage';
 import OnboardingPage from '../pages/OnboardingPage';
 import RecommendationsPage from '../pages/RecommendationsPage';
 import AdminPage from '../pages/AdminPage';
+import CompaniesPage from '../pages/CompaniesPage';
 
 export const routes: RouteConfig[] = [
   {
@@ -17,6 +18,11 @@ export const routes: RouteConfig[] = [
     path: '/home',
     element: HomePage,
     title: 'Inicio - EncuentraPega',
+  },
+  {
+    path: '/companies',
+    element: CompaniesPage,
+    title: 'Empresas - EncuentraPega',
   },
   {
     path: '/onboarding',

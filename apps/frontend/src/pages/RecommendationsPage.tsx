@@ -255,7 +255,24 @@ const RecommendationsPage: React.FC = () => {
             className="btn-outline"
             onClick={handleExploreAll}
           >
-            🔍 Ver Todas las Empresas
+            🔍 Ver Todas las Empresas (Aquí)
+          </button>
+          <button 
+            className="btn-primary"
+            onClick={() => navigate('/companies')}
+          >
+            🏢 Explorar Directorio Completo
+          </button>
+        </div>
+
+        {/* Floating Action Button */}
+        <div className="floating-action">
+          <button 
+            className="fab"
+            onClick={() => navigate('/companies')}
+            title="Ver directorio completo de empresas"
+          >
+            🏢
           </button>
         </div>
       </div>

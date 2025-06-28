@@ -21,16 +21,13 @@ app.use(express.json());
 const getCompanies = () => {
   try {
     const companiesDir = path.join(__dirname, 'data', 'companies');
-    const industries = [
-      'fintech', 'banking', 'ecommerce', 'foodtech', 
-      'hrtech', 'consulting', 'telecommunications', 
-      'mining', 'retail'
-    ];
-    
     let allCompanies = [];
     
-    industries.forEach(industry => {
-      const filePath = path.join(companiesDir, `${industry}.json`);
+    // Leer todos los archivos JSON en el directorio de empresas
+    const files = fs.readdirSync(companiesDir).filter(file => file.endsWith('.json'));
+    
+    files.forEach(file => {
+      const filePath = path.join(companiesDir, file);
       if (fs.existsSync(filePath)) {
         const data = fs.readFileSync(filePath, 'utf8');
         const companies = JSON.parse(data);
@@ -169,30 +166,55 @@ app.get('/api/companies/industry/:industry', (req, res) => {
 // Get available industries
 app.get('/api/industries', (req, res) => {
   try {
-    const industries = [
-      { id: 'fintech', name: 'Fintech', count: 0 },
-      { id: 'banking', name: 'Banking', count: 0 },
-      { id: 'ecommerce', name: 'E-commerce', count: 0 },
-      { id: 'foodtech', name: 'FoodTech', count: 0 },
-      { id: 'hrtech', name: 'HR Tech', count: 0 },
-      { id: 'consulting', name: 'Consulting', count: 0 },
-      { id: 'telecommunications', name: 'Telecomunicaciones', count: 0 },
-      { id: 'mining', name: 'Minería', count: 0 },
-      { id: 'retail', name: 'Retail', count: 0 }
-    ];
+    const companiesDir = path.join(__dirname, 'data', 'companies');
+    const industries = [];
     
-    // Contar empresas por industria
-    industries.forEach(industry => {
-      const filePath = path.join(__dirname, 'data', 'companies', `${industry.id}.json`);
+    // Leer todos los archivos de industrias disponibles
+    const files = fs.readdirSync(companiesDir).filter(file => file.endsWith('.json'));
+    
+    files.forEach(file => {
+      const industryId = file.replace('.json', '');
+      const filePath = path.join(companiesDir, file);
+      
       if (fs.existsSync(filePath)) {
         const data = fs.readFileSync(filePath, 'utf8');
         const companies = JSON.parse(data);
-        industry.count = companies.length;
+        
+        // Mapear nombres de industrias
+        const industryNames = {
+          'automotive': 'Automotriz',
+          'banking': 'Banca',
+          'consulting': 'Consultoría', 
+          'ecommerce': 'E-commerce',
+          'education': 'Educación',
+          'energy': 'Energía',
+          'fintech': 'Fintech',
+          'foodtech': 'FoodTech',
+          'healthcare': 'Salud',
+          'hrtech': 'HR Tech',
+          'insurance': 'Seguros',
+          'logistics': 'Logística',
+          'media': 'Medios',
+          'mining': 'Minería',
+          'retail': 'Retail',
+          'technology': 'Tecnología',
+          'telecommunications': 'Telecomunicaciones'
+        };
+        
+        industries.push({
+          id: industryId,
+          name: industryNames[industryId] || industryId,
+          count: companies.length
+        });
       }
     });
     
+    // Ordenar por nombre
+    industries.sort((a, b) => a.name.localeCompare(b.name));
+    
     res.json(industries);
   } catch (error) {
+    console.error('Error fetching industries:', error);
     res.status(500).json({ error: 'Error fetching industries' });
   }
 });
