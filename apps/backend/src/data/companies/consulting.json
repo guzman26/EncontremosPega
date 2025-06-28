@@ -1,0 +1,47 @@
+[
+  {
+    "id": "consulting-1",
+    "name": "Platanus",
+    "logo": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=100&h=100&fit=crop&crop=center",
+    "description": "Consultora de desarrollo de software especializada en crear productos digitales de alta calidad para startups y empresas.",
+    "industry": "Software Development",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Mentorship", "Crecimiento Profesional"],
+    "benefits": ["Capacitación y Cursos", "Horarios Flexibles", "Equipos de Trabajo"],
+    "openPositions": ["Ruby Developer", "React Developer", "DevOps Engineer"],
+    "rating": 4.6,
+    "website": "https://platan.us/jobs",
+    "tags": ["tech", "product", "strategy"]
+  },
+  {
+    "id": "consulting-2",
+    "name": "Teamcore",
+    "logo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=100&h=100&fit=crop&crop=center",
+    "description": "Startup enfocada en optimizar operaciones empresariales através de tecnología y análisis de datos avanzados.",
+    "industry": "Enterprise Software",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Autonomía", "Ambiente Competitivo"],
+    "benefits": ["Bonos por Desempeño", "Equipos de Trabajo", "Capacitación y Cursos"],
+    "openPositions": ["Full Stack Developer", "Data Engineer", "Sales Executive"],
+    "rating": 4.3,
+    "website": "https://teamcore.cl",
+    "tags": ["analytics", "tech", "sales"]
+  },
+  {
+    "id": "consulting-3",
+    "name": "FullStack Labs Chile",
+    "logo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&h=100&fit=crop&crop=center",
+    "description": "Consultora de desarrollo de software que conecta talento latinoamericano con empresas de Estados Unidos.",
+    "industry": "Software Consulting",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Trabajo Remoto", "Multiculturalidad", "Crecimiento Profesional"],
+    "benefits": ["Trabajo Remoto Internacional", "Dólar", "Capacitación Avanzada"],
+    "openPositions": ["Senior Developer", "Tech Lead", "Solution Architect"],
+    "rating": 4.7,
+    "website": "https://www.fullstacklabs.co/careers",
+    "tags": ["tech", "strategy", "operations"]
+  }
+] 

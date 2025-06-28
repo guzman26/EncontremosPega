@@ -1,0 +1,47 @@
+[
+  {
+    "id": "telecom-1",
+    "name": "Movistar Chile",
+    "logo": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=100&h=100&fit=crop&crop=center",
+    "description": "Líder en telecomunicaciones móviles, internet y servicios digitales en Chile, parte del grupo Telefónica.",
+    "industry": "Telecommunications",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Transformación Digital", "Diversidad"],
+    "benefits": ["Seguro de Salud", "Planes Móviles", "Capacitación y Cursos"],
+    "openPositions": ["Network Engineer", "Digital Product Manager", "Data Analyst"],
+    "rating": 4.1,
+    "website": "https://www.movistar.cl/trabaja-con-nosotros",
+    "tags": ["tech", "operations", "analytics"]
+  },
+  {
+    "id": "telecom-2",
+    "name": "Entel",
+    "logo": "https://images.unsplash.com/photo-1516387938699-a93567ec168e?w=100&h=100&fit=crop&crop=center",
+    "description": "Empresa de telecomunicaciones chilena líder en conectividad móvil, fija e internet, enfocada en transformación digital.",
+    "industry": "Telecommunications",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación Constante", "Excelencia Operacional", "Sustentabilidad"],
+    "benefits": ["Planes de Telefonía", "Seguro de Salud", "Desarrollo Profesional"],
+    "openPositions": ["5G Engineer", "Cloud Architect", "Cybersecurity Specialist"],
+    "rating": 4.2,
+    "website": "https://www.entel.cl/personas/trabaja-con-nosotros",
+    "tags": ["tech", "operations", "strategy"]
+  },
+  {
+    "id": "telecom-3",
+    "name": "VTR",
+    "logo": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=100&h=100&fit=crop&crop=center",
+    "description": "Proveedor de servicios de telecomunicaciones, internet y televisión por cable en Chile.",
+    "industry": "Telecommunications & Media",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Orientación al Cliente", "Innovación", "Trabajo en Equipo"],
+    "benefits": ["Internet y TV Gratis", "Seguro de Salud", "Horarios Flexibles"],
+    "openPositions": ["Network Technician", "Customer Experience", "Software Developer"],
+    "rating": 4.0,
+    "website": "https://www.vtr.com/trabaja-con-nosotros",
+    "tags": ["operations", "tech", "marketing"]
+  }
+] 

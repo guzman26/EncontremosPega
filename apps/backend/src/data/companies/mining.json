@@ -1,0 +1,47 @@
+[
+  {
+    "id": "mining-1",
+    "name": "CODELCO",
+    "logo": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=100&h=100&fit=crop&crop=center",
+    "description": "Corporación Nacional del Cobre, empresa estatal y mayor productora de cobre del mundo, líder en innovación minera.",
+    "industry": "Mining",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Excelencia Operacional", "Sustentabilidad", "Innovación Tecnológica"],
+    "benefits": ["Estabilidad Laboral", "Seguro de Salud Premium", "Capacitación Técnica"],
+    "openPositions": ["Mining Engineer", "Data Scientist", "Process Automation"],
+    "rating": 4.3,
+    "website": "https://www.codelco.com/trabaja-con-nosotros",
+    "tags": ["operations", "analytics", "tech"]
+  },
+  {
+    "id": "mining-2",
+    "name": "Antofagasta Minerals",
+    "logo": "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=100&h=100&fit=crop&crop=center",
+    "description": "Grupo minero de cobre con operaciones en Chile, enfocado en sustentabilidad y tecnología de punta.",
+    "industry": "Mining",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Seguridad First", "Innovación", "Desarrollo Sustentable"],
+    "benefits": ["Planes de Salud", "Desarrollo Internacional", "Bonos por Resultados"],
+    "openPositions": ["Metallurgical Engineer", "Environmental Specialist", "Supply Chain"],
+    "rating": 4.2,
+    "website": "https://www.antofagasta.co.uk/careers",
+    "tags": ["operations", "strategy", "legal"]
+  },
+  {
+    "id": "mining-3",
+    "name": "Anglo American Chile",
+    "logo": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=100&h=100&fit=crop&crop=center",
+    "description": "Multinacional minera británica con importantes operaciones de cobre en Chile, líder en minería sustentable.",
+    "industry": "Mining",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Diversidad e Inclusión", "Sustentabilidad", "Excelencia Técnica"],
+    "benefits": ["Seguro de Salud Internacional", "Desarrollo de Carrera", "Programas de Bienestar"],
+    "openPositions": ["Geologist", "Mine Planning Engineer", "ESG Manager"],
+    "rating": 4.4,
+    "website": "https://www.angloamerican.com/careers",
+    "tags": ["operations", "strategy", "legal"]
+  }
+] 

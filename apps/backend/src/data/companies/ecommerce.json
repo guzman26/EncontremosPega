@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ecommerce-1",
+    "name": "Cornershop by Uber",
+    "logo": "https://images.unsplash.com/photo-1616499370260-485b3e5ed653?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma de delivery de supermercados líder en Latinoamérica, enfocada en conectar consumidores con sus tiendas favoritas.",
+    "industry": "E-commerce & Delivery",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Trabajo en Equipo", "Crecimiento Profesional"],
+    "benefits": ["Trabajo Remoto", "Seguro de Salud", "Horarios Flexibles"],
+    "openPositions": ["Frontend Developer", "Backend Engineer", "Product Manager"],
+    "rating": 4.5,
+    "website": "https://cornershopapp.com/careers",
+    "tags": ["tech", "operations", "product"]
+  },
+  {
+    "id": "ecommerce-2",
+    "name": "Mercado Libre Chile",
+    "logo": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=100&h=100&fit=crop&crop=center",
+    "description": "Ecosistema de comercio electrónico líder en América Latina, ofreciendo soluciones de marketplace, pagos y logística.",
+    "industry": "E-commerce",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Crecimiento Profesional", "Diversidad e Inclusión"],
+    "benefits": ["Seguro de Salud", "Capacitación y Cursos", "Gimnasio/Wellness"],
+    "openPositions": ["Software Engineer", "Data Analyst", "Product Manager"],
+    "rating": 4.4,
+    "website": "https://careers.mercadolibre.com",
+    "tags": ["tech", "analytics", "operations"]
+  },
+  {
+    "id": "ecommerce-3",
+    "name": "Falabella.com",
+    "logo": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma de e-commerce del retail más grande de Chile, conectando marcas y consumidores digitalmente.",
+    "industry": "E-commerce & Retail",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Trabajo en Equipo", "Orientación al Cliente"],
+    "benefits": ["Descuentos Corporativos", "Seguro de Salud", "Capacitación y Cursos"],
+    "openPositions": ["E-commerce Manager", "Digital Marketing", "UX Designer"],
+    "rating": 4.2,
+    "website": "https://www.falabella.com/falabella-cl/page/trabaja-con-nosotros",
+    "tags": ["marketing", "design", "operations"]
+  },
+  {
+    "id": "ecommerce-4",
+    "name": "Pedidos Ya",
+    "logo": "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma líder de delivery de comida y productos, conectando restaurantes y comercios con consumidores.",
+    "industry": "Food Delivery",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Ritmo Acelerado", "Innovación y Tecnología", "Orientación al Cliente"],
+    "benefits": ["Trabajo Remoto", "Seguro de Salud", "Bonos por Desempeño"],
+    "openPositions": ["Operations Manager", "Growth Hacker", "Backend Developer"],
+    "rating": 4.3,
+    "website": "https://careers.pedidosya.com",
+    "tags": ["operations", "marketing", "tech"]
+  }
+] 

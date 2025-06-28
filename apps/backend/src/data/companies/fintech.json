@@ -1,0 +1,62 @@
+[
+  {
+    "id": "fintech-1",
+    "name": "Fintual",
+    "logo": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=100&h=100&fit=crop&crop=center",
+    "description": "Fintech chilena que democratiza las inversiones a través de una plataforma simple y automatizada de fondos mutuos.",
+    "industry": "Fintech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Work-Life Balance", "Autonomía"],
+    "benefits": ["Trabajo Remoto", "Horarios Flexibles", "Vacaciones Flexibles"],
+    "openPositions": ["Full Stack Developer", "Frontend Developer", "UX Designer"],
+    "rating": 4.8,
+    "website": "https://fintual.cl/jobs",
+    "tags": ["finance", "tech", "product"]
+  },
+  {
+    "id": "fintech-2",
+    "name": "Tenpo",
+    "logo": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=100&h=100&fit=crop&crop=center",
+    "description": "Neobank chileno que ofrece cuenta digital gratuita con tarjeta Mastercard y múltiples beneficios financieros.",
+    "industry": "Fintech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Crecimiento Rápido", "Trabajo en Equipo"],
+    "benefits": ["Seguro de Salud", "Trabajo Remoto", "Bonos por Desempeño"],
+    "openPositions": ["Backend Engineer", "Mobile Developer", "Data Analyst"],
+    "rating": 4.6,
+    "website": "https://tenpo.cl/careers",
+    "tags": ["finance", "tech", "marketing"]
+  },
+  {
+    "id": "fintech-3",
+    "name": "Rocketpin",
+    "logo": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma de cashback que conecta marcas con consumidores, ofreciendo recompensas por compras cotidianas.",
+    "industry": "Fintech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Data-Driven", "Innovación y Tecnología", "Ambiente Competitivo"],
+    "benefits": ["Horarios Flexibles", "Capacitación y Cursos", "Stock Options"],
+    "openPositions": ["Growth Manager", "Backend Developer", "Marketing Manager"],
+    "rating": 4.4,
+    "website": "https://rocketpin.com/careers",
+    "tags": ["marketing", "finance", "analytics"]
+  },
+  {
+    "id": "fintech-4",
+    "name": "Khipu",
+    "logo": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma de pagos que facilita transferencias bancarias instantáneas para comercios y empresas.",
+    "industry": "Fintech",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Crecimiento Profesional", "Autonomía"],
+    "benefits": ["Trabajo Remoto", "Seguro de Salud", "Equipos de Trabajo"],
+    "openPositions": ["Software Engineer", "DevOps Engineer", "Product Manager"],
+    "rating": 4.5,
+    "website": "https://khipu.com/careers",
+    "tags": ["tech", "finance", "product"]
+  }
+] 

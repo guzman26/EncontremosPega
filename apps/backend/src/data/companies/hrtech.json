@@ -1,0 +1,47 @@
+[
+  {
+    "id": "hrtech-1",
+    "name": "Buk",
+    "logo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma SaaS de gestión de recursos humanos que simplifica los procesos de RRHH para empresas de toda América Latina.",
+    "industry": "HR Tech",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Work-Life Balance", "Crecimiento Profesional", "Trabajo en Equipo"],
+    "benefits": ["Trabajo Remoto", "Vacaciones Flexibles", "Seguro de Salud"],
+    "openPositions": ["Backend Developer", "Frontend Developer", "Product Designer"],
+    "rating": 4.5,
+    "website": "https://buk.cl/careers",
+    "tags": ["hr", "tech", "product"]
+  },
+  {
+    "id": "hrtech-2",
+    "name": "Workana",
+    "logo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma líder de freelancing en Latinoamérica que conecta empresas con profesionales independientes.",
+    "industry": "HR Tech & Freelancing",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Trabajo Remoto", "Autonomía", "Diversidad"],
+    "benefits": ["Trabajo 100% Remoto", "Horarios Flexibles", "Team Building"],
+    "openPositions": ["Community Manager", "Full Stack Developer", "Data Analyst"],
+    "rating": 4.3,
+    "website": "https://www.workana.com/jobs",
+    "tags": ["hr", "marketing", "analytics"]
+  },
+  {
+    "id": "hrtech-3",
+    "name": "Rankmi",
+    "logo": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=100&h=100&fit=crop&crop=center",
+    "description": "Software de gestión del desempeño y clima laboral que ayuda a las empresas a desarrollar su talento.",
+    "industry": "HR Tech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Data-Driven", "People First", "Crecimiento Profesional"],
+    "benefits": ["Desarrollo Profesional", "Seguro de Salud", "Team Building"],
+    "openPositions": ["People Analytics", "Frontend Developer", "Customer Success"],
+    "rating": 4.6,
+    "website": "https://rankmi.com/careers",
+    "tags": ["hr", "analytics", "tech"]
+  }
+] 

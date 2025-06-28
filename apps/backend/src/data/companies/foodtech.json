@@ -1,0 +1,47 @@
+[
+  {
+    "id": "foodtech-1",
+    "name": "NotCo",
+    "logo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=100&h=100&fit=crop&crop=center",
+    "description": "Foodtech chilena que usa IA para crear alternativas vegetales a productos animales, revolucionando la industria alimentaria.",
+    "industry": "FoodTech & AI",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Impacto Social", "Autonomía"],
+    "benefits": ["Capacitación y Cursos", "Bonos por Desempeño", "Alimentación"],
+    "openPositions": ["Data Scientist", "Machine Learning Engineer", "Product Designer"],
+    "rating": 4.7,
+    "website": "https://notco.com/careers",
+    "tags": ["analytics", "tech", "product"]
+  },
+  {
+    "id": "foodtech-2",
+    "name": "Livit",
+    "logo": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=100&h=100&fit=crop&crop=center",
+    "description": "Startup que desarrolla soluciones de alimentación saludable y personalizada basada en biotecnología.",
+    "industry": "FoodTech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación y Tecnología", "Salud y Bienestar", "Investigación"],
+    "benefits": ["Alimentación Saludable", "Horarios Flexibles", "Investigación"],
+    "openPositions": ["Food Scientist", "Biotech Engineer", "Marketing Manager"],
+    "rating": 4.5,
+    "website": "https://livit.cl/careers",
+    "tags": ["analytics", "marketing", "tech"]
+  },
+  {
+    "id": "foodtech-3",
+    "name": "Brokkoli",
+    "logo": "https://images.unsplash.com/photo-1540420773420-3366772f4999?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma que conecta productores locales con consumidores, promoviendo alimentación sustentable y de calidad.",
+    "industry": "FoodTech & Sustainability",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Impacto Social", "Sustentabilidad", "Innovación"],
+    "benefits": ["Productos Locales", "Trabajo Remoto", "Impacto Ambiental"],
+    "openPositions": ["Supply Chain Manager", "Mobile Developer", "Community Manager"],
+    "rating": 4.4,
+    "website": "https://brokkoli.cl/jobs",
+    "tags": ["operations", "tech", "marketing"]
+  }
+] 
