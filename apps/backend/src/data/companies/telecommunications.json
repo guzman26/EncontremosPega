@@ -103,5 +103,20 @@
     "rating": 4.2,
     "website": "https://www.gtd.cl/trabaja-con-nosotros",
     "tags": ["tech", "strategy", "operations"]
+  },
+  {
+    "id": "telecom-8",
+    "name": "Virgin Mobile Chile",
+    "logo": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=100&h=100&fit=crop&crop=center",
+    "description": "Operador móvil virtual que ofrece planes prepago y servicios digitales innovadores.",
+    "industry": "Mobile Telecommunications",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Disrupción", "Servicio al Cliente", "Agilidad"],
+    "benefits": ["Planes Móviles", "Ambiente Joven", "Eventos Corporativos"],
+    "openPositions": ["Brand Manager", "Customer Service", "Network Engineer"],
+    "rating": 4.0,
+    "website": "https://www.virginmobile.cl/trabaja-con-nosotros",
+    "tags": ["marketing", "operations", "tech"]
   }
-] 
+]

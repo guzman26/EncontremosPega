@@ -88,5 +88,20 @@
     "rating": 4.3,
     "website": "https://www.roche.cl/careers",
     "tags": ["healthcare", "research", "strategy"]
+  },
+  {
+    "id": "health-7",
+    "name": "Clínica Alemana",
+    "logo": "https://images.unsplash.com/photo-1580281657525-1f28dbfb1d6d?w=100&h=100&fit=crop&crop=center",
+    "description": "Red de clínicas de alta complejidad con servicios médicos y hospitalarios de excelencia.",
+    "industry": "Healthcare",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Calidad Médica", "Compromiso con el Paciente", "Innovación en Salud"],
+    "benefits": ["Seguro de Salud", "Capacitación Continua", "Beneficios Corporativos"],
+    "openPositions": ["Enfermera", "Médico Especialista", "Administrador Clínico"],
+    "rating": 4.4,
+    "website": "https://www.clinicaalemana.cl/trabaja-con-nosotros",
+    "tags": ["healthcare", "operations", "research"]
   }
-] 
+]

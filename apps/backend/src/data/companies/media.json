@@ -88,5 +88,20 @@
     "rating": 4.6,
     "website": "https://www.spotify.com/cl/jobs/",
     "tags": ["content", "tech", "marketing"]
+  },
+  {
+    "id": "media-7",
+    "name": "Mega",
+    "logo": "https://images.unsplash.com/photo-1517638851339-4e93160d1eba?w=100&h=100&fit=crop&crop=center",
+    "description": "Canal de televisión chileno con programación variada y producción audiovisual propia.",
+    "industry": "Media & Broadcasting",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Creatividad", "Trabajo en Equipo", "Innovación"],
+    "benefits": ["Seguro de Salud", "Capacitación", "Eventos Corporativos"],
+    "openPositions": ["Periodista", "Productor de TV", "Editor Multimedia"],
+    "rating": 4.0,
+    "website": "https://www.mega.cl/corporativo/trabaja-con-nosotros.html",
+    "tags": ["content", "marketing", "operations"]
   }
-] 
+]

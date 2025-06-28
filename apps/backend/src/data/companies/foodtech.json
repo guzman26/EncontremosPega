@@ -88,5 +88,20 @@
     "rating": 4.2,
     "website": "https://www.eatsy.cl/jobs",
     "tags": ["marketing", "tech", "strategy"]
+  },
+  {
+    "id": "foodtech-7",
+    "name": "The Live Green Co",
+    "logo": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=100&h=100&fit=crop&crop=center",
+    "description": "Startup que desarrolla alimentos basados en plantas usando inteligencia artificial para reemplazar ingredientes artificiales.",
+    "industry": "FoodTech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Sustentabilidad", "Innovación", "Impacto Social"],
+    "benefits": ["Trabajo con Propósito", "Ambiente Startup", "Stock Options"],
+    "openPositions": ["Food Scientist", "Full Stack Developer", "Marketing Specialist"],
+    "rating": 4.4,
+    "website": "https://thelivegreencompany.com/careers",
+    "tags": ["tech", "marketing", "operations"]
   }
-] 
+]

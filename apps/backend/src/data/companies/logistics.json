@@ -88,5 +88,20 @@
     "rating": 4.3,
     "website": "https://www.unologistics.cl/careers",
     "tags": ["operations", "tech", "logistics"]
+  },
+  {
+    "id": "logistics-7",
+    "name": "DHL Express Chile",
+    "logo": "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?w=100&h=100&fit=crop&crop=center",
+    "description": "Proveedor global de servicios logísticos y courier con amplia cobertura en Chile.",
+    "industry": "International Logistics",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Excelencia en Servicio", "Rapidez", "Cobertura Global"],
+    "benefits": ["Seguro de Salud", "Capacitación Internacional", "Descuentos en Envíos"],
+    "openPositions": ["Courier", "Operations Supervisor", "Customs Analyst"],
+    "rating": 4.2,
+    "website": "https://www.dhl.com/cl-es/home/careers.html",
+    "tags": ["operations", "logistics", "strategy"]
   }
-] 
+]

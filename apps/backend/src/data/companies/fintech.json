@@ -118,5 +118,20 @@
     "rating": 4.5,
     "website": "https://www.rebold.com/careers",
     "tags": ["finance", "analytics", "tech"]
+  },
+  {
+    "id": "fintech-9",
+    "name": "Kredito",
+    "logo": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma chilena que ofrece financiamiento rápido para pymes a través de tecnología.",
+    "industry": "Fintech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación Financiera", "Agilidad", "Orientación al Cliente"],
+    "benefits": ["Trabajo Remoto", "Bonos por Desempeño", "Seguro de Salud"],
+    "openPositions": ["Full Stack Developer", "Risk Analyst", "Sales Executive"],
+    "rating": 4.3,
+    "website": "https://www.kredito.cl/careers",
+    "tags": ["finance", "tech", "sales"]
   }
-] 
+]
