@@ -88,5 +88,20 @@
     "rating": 3.8,
     "website": "https://www.red.cl/careers",
     "tags": ["operations", "strategy", "social"]
+  },
+  {
+    "id": "auto-7",
+    "name": "Toyota Chile",
+    "logo": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=100&h=100&fit=crop&crop=center",
+    "description": "Filial chilena de Toyota, enfocada en la venta y servicio de vehículos de la marca japonesa.",
+    "industry": "Automotive Manufacturing",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Calidad Japonesa", "Innovación Automotriz", "Servicio al Cliente"],
+    "benefits": ["Capacitación Internacional", "Seguro de Salud", "Descuentos en Vehículos"],
+    "openPositions": ["Service Advisor", "Sales Executive", "Parts Specialist"],
+    "rating": 4.3,
+    "website": "https://www.toyota.cl/careers",
+    "tags": ["operations", "sales", "tech"]
   }
-] 
+]

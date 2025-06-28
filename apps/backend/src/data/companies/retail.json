@@ -118,5 +118,20 @@
     "rating": 4.0,
     "website": "https://www.easy.cl/trabaja-con-nosotros",
     "tags": ["operations", "tech", "sales"]
+  },
+  {
+    "id": "retail-9",
+    "name": "Tottus",
+    "logo": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=100&h=100&fit=crop&crop=center",
+    "description": "Cadena de supermercados parte del grupo Falabella, presente en varias regiones de Chile.",
+    "industry": "Retail",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Orientación al Cliente", "Trabajo en Equipo", "Eficiencia"],
+    "benefits": ["Descuentos Corporativos", "Seguro de Salud", "Capacitación"],
+    "openPositions": ["Jefe de Sala", "Analista de Abastecimiento", "Operador de Tienda"],
+    "rating": 4.1,
+    "website": "https://www.tottus.cl/trabaja-con-nosotros",
+    "tags": ["operations", "sales", "strategy"]
   }
-] 
+]

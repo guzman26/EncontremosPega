@@ -88,5 +88,20 @@
     "rating": 4.2,
     "website": "https://www.crehana.com/careers",
     "tags": ["education", "content", "marketing"]
+  },
+  {
+    "id": "edu-7",
+    "name": "Duoc UC",
+    "logo": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=100&h=100&fit=crop&crop=center",
+    "description": "Instituto profesional chileno con programas técnicos y profesionales en diversas áreas.",
+    "industry": "Higher Education",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Formación Técnica", "Innovación Educativa", "Trabajo en Equipo"],
+    "benefits": ["Capacitación Docente", "Seguro de Salud", "Ambiente Académico"],
+    "openPositions": ["Docente", "Coordinador Académico", "Analista TI"],
+    "rating": 4.3,
+    "website": "https://www.duoc.cl/trabaja-con-nosotros",
+    "tags": ["education", "operations", "tech"]
   }
-] 
+]

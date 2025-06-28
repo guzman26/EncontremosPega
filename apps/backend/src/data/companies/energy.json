@@ -88,5 +88,20 @@
     "rating": 4.5,
     "website": "https://www.voltex.cl/careers",
     "tags": ["tech", "strategy", "operations"]
+  },
+  {
+    "id": "energy-7",
+    "name": "Acciona Energía",
+    "logo": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=100&h=100&fit=crop&crop=center",
+    "description": "Compañía global de energías renovables con importantes proyectos eólicos y solares en Chile.",
+    "industry": "Renewable Energy",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Sostenibilidad", "Innovación", "Transición Energética"],
+    "benefits": ["Proyectos Internacionales", "Seguro de Salud", "Capacitación"],
+    "openPositions": ["Project Engineer", "Renewable Analyst", "Operations Supervisor"],
+    "rating": 4.3,
+    "website": "https://www.acciona-energia.com/careers",
+    "tags": ["operations", "tech", "strategy"]
   }
-] 
+]

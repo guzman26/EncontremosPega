@@ -118,5 +118,20 @@
     "rating": 4.0,
     "website": "https://www.sodimac.cl/sodimac-cl/company/careers",
     "tags": ["operations", "product", "tech"]
+  },
+  {
+    "id": "ecommerce-9",
+    "name": "Paris.cl",
+    "logo": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=100&h=100&fit=crop&crop=center",
+    "description": "Canal de comercio electrónico de la multitienda Paris, con amplia oferta en moda, hogar y tecnología.",
+    "industry": "Retail E-commerce",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Orientación al Cliente", "Innovación Digital", "Trabajo en Equipo"],
+    "benefits": ["Descuentos Corporativos", "Seguro de Salud", "Capacitación"],
+    "openPositions": ["E-commerce Manager", "Frontend Developer", "Digital Marketing"],
+    "rating": 4.0,
+    "website": "https://www.paris.cl/trabaja-con-nosotros",
+    "tags": ["marketing", "tech", "operations"]
   }
-] 
+]

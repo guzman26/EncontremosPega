@@ -88,5 +88,20 @@
     "rating": 4.1,
     "website": "https://www.despegar.com/careers",
     "tags": ["hr", "marketing", "analytics"]
+  },
+  {
+    "id": "hrtech-7",
+    "name": "AIRA",
+    "logo": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=100&h=100&fit=crop&crop=center",
+    "description": "Plataforma de reclutamiento automatizado que utiliza inteligencia artificial para filtrar candidatos.",
+    "industry": "HR Tech",
+    "size": "startup",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación", "Data-Driven", "Agilidad"],
+    "benefits": ["Trabajo Remoto", "Crecimiento Rápido", "Capacitación"],
+    "openPositions": ["AI Engineer", "Recruiter", "Full Stack Developer"],
+    "rating": 4.2,
+    "website": "https://aira.io/careers",
+    "tags": ["hr", "tech", "analytics"]
   }
-] 
+]

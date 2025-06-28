@@ -73,5 +73,20 @@
     "rating": 4.2,
     "website": "https://www.hdi.cl/careers",
     "tags": ["finance", "strategy", "tech"]
+  },
+  {
+    "id": "insurance-6",
+    "name": "BICE Vida",
+    "logo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=center",
+    "description": "Compañía de seguros de vida chilena que ofrece productos de ahorro y protección.",
+    "industry": "Insurance",
+    "size": "medium",
+    "location": "Santiago, Chile",
+    "culture": ["Servicio al Cliente", "Solidez Financiera", "Innovación"],
+    "benefits": ["Seguro de Salud", "Planes de Ahorro", "Capacitación"],
+    "openPositions": ["Actuario", "Backend Developer", "Ejecutivo Comercial"],
+    "rating": 4.1,
+    "website": "https://www.bicevida.cl/careers",
+    "tags": ["finance", "sales", "tech"]
   }
-] 
+]

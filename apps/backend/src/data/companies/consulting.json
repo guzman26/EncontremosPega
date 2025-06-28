@@ -118,5 +118,20 @@
     "rating": 4.1,
     "website": "https://home.kpmg/cl/es/home/careers.html",
     "tags": ["strategy", "finance", "legal"]
+  },
+  {
+    "id": "consulting-9",
+    "name": "PwC Chile",
+    "logo": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=100&h=100&fit=crop&crop=center",
+    "description": "Firma global de servicios profesionales con asesorías en auditoría, consultoría y negocios.",
+    "industry": "Professional Services",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Integridad", "Excelencia Profesional", "Innovación"],
+    "benefits": ["Plan de Carrera", "Certificaciones Profesionales", "Seguro de Salud"],
+    "openPositions": ["Consultor", "Auditor", "Data Analyst"],
+    "rating": 4.2,
+    "website": "https://www.pwc.cl/careers",
+    "tags": ["finance", "strategy", "analytics"]
   }
-] 
+]

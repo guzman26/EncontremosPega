@@ -246,5 +246,20 @@
       "tech",
       "strategy"
     ]
+  },
+  {
+    "id": "banking-9",
+    "name": "Banco BCI",
+    "logo": "https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=100&h=100&fit=crop&crop=center",
+    "description": "Banco chileno con foco en innovación digital y servicios financieros para personas y empresas.",
+    "industry": "Banking",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación Financiera", "Servicio al Cliente", "Trabajo en Equipo"],
+    "benefits": ["Capacitación y Cursos", "Seguro de Salud", "Bonos por Desempeño"],
+    "openPositions": ["Digital Product Owner", "Risk Analyst", "Backend Developer"],
+    "rating": 4.2,
+    "website": "https://www.bci.cl/personas/trabaja-con-nosotros",
+    "tags": ["finance", "tech", "operations"]
   }
 ]

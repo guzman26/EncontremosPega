@@ -88,5 +88,20 @@
     "rating": 4.1,
     "website": "https://www.lundinmining.com/careers/",
     "tags": ["operations", "finance", "strategy"]
+  },
+  {
+    "id": "mining-7",
+    "name": "Codelco",
+    "logo": "https://images.unsplash.com/photo-1508385082359-f35b0da6df35?w=100&h=100&fit=crop&crop=center",
+    "description": "Corporación Nacional del Cobre de Chile, principal productor de cobre del mundo.",
+    "industry": "Mining",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Seguridad", "Innovación", "Sustentabilidad"],
+    "benefits": ["Estabilidad Laboral", "Capacitación Técnica", "Seguro de Salud"],
+    "openPositions": ["Ingeniero de Minas", "Geólogo", "Supervisor de Operaciones"],
+    "rating": 4.3,
+    "website": "https://www.codelco.com/trabaja-con-nosotros",
+    "tags": ["operations", "strategy", "tech"]
   }
-] 
+]

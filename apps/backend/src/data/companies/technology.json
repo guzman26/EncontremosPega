@@ -88,5 +88,20 @@
     "rating": 4.5,
     "website": "https://www.nisum.com/careers",
     "tags": ["tech", "design", "product"]
+  },
+  {
+    "id": "tech-7",
+    "name": "Google Chile",
+    "logo": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=100&h=100&fit=crop&crop=center",
+    "description": "Filial chilena de Google enfocada en ventas, marketing y apoyo a desarrolladores locales.",
+    "industry": "Internet Services",
+    "size": "large",
+    "location": "Santiago, Chile",
+    "culture": ["Innovación", "Diversidad", "Ambiente Global"],
+    "benefits": ["Beneficios Globales", "Ambiente Creativo", "Capacitación Continua"],
+    "openPositions": ["Account Manager", "Cloud Engineer", "Marketing Specialist"],
+    "rating": 4.5,
+    "website": "https://careers.google.com/locations/santiago/",
+    "tags": ["tech", "marketing", "sales"]
   }
-] 
+]
