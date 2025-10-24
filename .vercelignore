@@ -1,0 +1,12 @@
+node_modules
+.git
+.gitignore
+README.md
+README_DESIGN.md
+ARCHITECTURE.md
+MONOREPO_SETUP.md
+.env.local
+.env.development
+DESIGN_SYSTEM.md
+DESIGN_IMPROVEMENTS.md
+ADVANCED_DESIGN.md
