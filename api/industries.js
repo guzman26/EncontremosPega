@@ -1,18 +1,18 @@
-const technology = require('../apps/backend/src/data/companies/technology.json');
-const banking = require('../apps/backend/src/data/companies/banking.json');
-const healthcare = require('../apps/backend/src/data/companies/healthcare.json');
-const ecommerce = require('../apps/backend/src/data/companies/ecommerce.json');
-const fintech = require('../apps/backend/src/data/companies/fintech.json');
-const consulting = require('../apps/backend/src/data/companies/consulting.json');
-const education = require('../apps/backend/src/data/companies/education.json');
-const energy = require('../apps/backend/src/data/companies/energy.json');
-const retail = require('../apps/backend/src/data/companies/retail.json');
-const logistics = require('../apps/backend/src/data/companies/logistics.json');
-const automotive = require('../apps/backend/src/data/companies/automotive.json');
-const insurance = require('../apps/backend/src/data/companies/insurance.json');
-const media = require('../apps/backend/src/data/companies/media.json');
-const mining = require('../apps/backend/src/data/companies/mining.json');
-const telecommunications = require('../apps/backend/src/data/companies/telecommunications.json');
+import technology from '../apps/backend/src/data/companies/technology.json' with { type: 'json' };
+import banking from '../apps/backend/src/data/companies/banking.json' with { type: 'json' };
+import healthcare from '../apps/backend/src/data/companies/healthcare.json' with { type: 'json' };
+import ecommerce from '../apps/backend/src/data/companies/ecommerce.json' with { type: 'json' };
+import fintech from '../apps/backend/src/data/companies/fintech.json' with { type: 'json' };
+import consulting from '../apps/backend/src/data/companies/consulting.json' with { type: 'json' };
+import education from '../apps/backend/src/data/companies/education.json' with { type: 'json' };
+import energy from '../apps/backend/src/data/companies/energy.json' with { type: 'json' };
+import retail from '../apps/backend/src/data/companies/retail.json' with { type: 'json' };
+import logistics from '../apps/backend/src/data/companies/logistics.json' with { type: 'json' };
+import automotive from '../apps/backend/src/data/companies/automotive.json' with { type: 'json' };
+import insurance from '../apps/backend/src/data/companies/insurance.json' with { type: 'json' };
+import media from '../apps/backend/src/data/companies/media.json' with { type: 'json' };
+import mining from '../apps/backend/src/data/companies/mining.json' with { type: 'json' };
+import telecommunications from '../apps/backend/src/data/companies/telecommunications.json' with { type: 'json' };
 
 const allCompanies = [
   ...technology,
@@ -42,7 +42,7 @@ function getIndustries() {
   return Array.from(industries).sort();
 }
 
-module.exports = function handler(req, res) {
+export default function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -65,4 +65,4 @@ module.exports = function handler(req, res) {
   } else {
     res.status(405).json({ error: 'Method not allowed' });
   }
-};
+}
