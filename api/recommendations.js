@@ -1,26 +1,36 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import technology from '../apps/backend/src/data/companies/technology.json' assert { type: 'json' };
+import banking from '../apps/backend/src/data/companies/banking.json' assert { type: 'json' };
+import healthcare from '../apps/backend/src/data/companies/healthcare.json' assert { type: 'json' };
+import ecommerce from '../apps/backend/src/data/companies/ecommerce.json' assert { type: 'json' };
+import fintech from '../apps/backend/src/data/companies/fintech.json' assert { type: 'json' };
+import consulting from '../apps/backend/src/data/companies/consulting.json' assert { type: 'json' };
+import education from '../apps/backend/src/data/companies/education.json' assert { type: 'json' };
+import energy from '../apps/backend/src/data/companies/energy.json' assert { type: 'json' };
+import retail from '../apps/backend/src/data/companies/retail.json' assert { type: 'json' };
+import logistics from '../apps/backend/src/data/companies/logistics.json' assert { type: 'json' };
+import automotive from '../apps/backend/src/data/companies/automotive.json' assert { type: 'json' };
+import insurance from '../apps/backend/src/data/companies/insurance.json' assert { type: 'json' };
+import media from '../apps/backend/src/data/companies/media.json' assert { type: 'json' };
+import mining from '../apps/backend/src/data/companies/mining.json' assert { type: 'json' };
+import telecommunications from '../apps/backend/src/data/companies/telecommunications.json' assert { type: 'json' };
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataPath = path.join(__dirname, '../apps/backend/src/data/companies');
-
-function loadCompaniesData() {
-  const files = fs.readdirSync(dataPath).filter(file => file.endsWith('.json'));
-  const allCompanies = [];
-  
-  files.forEach(file => {
-    try {
-      const filePath = path.join(dataPath, file);
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-      allCompanies.push(...data);
-    } catch (error) {
-      console.error(`Error loading ${file}:`, error);
-    }
-  });
-  
-  return allCompanies;
-}
+const allCompanies = [
+  ...technology,
+  ...banking,
+  ...healthcare,
+  ...ecommerce,
+  ...fintech,
+  ...consulting,
+  ...education,
+  ...energy,
+  ...retail,
+  ...logistics,
+  ...automotive,
+  ...insurance,
+  ...media,
+  ...mining,
+  ...telecommunications,
+];
 
 export default function handler(req, res) {
   // CORS headers
@@ -36,26 +46,25 @@ export default function handler(req, res) {
 
   if (req.method === 'POST') {
     try {
-      const companies = loadCompaniesData();
       const { interests, culture, benefits, salary } = req.body;
 
       // Calcular match score para cada empresa
-      const recommendedCompanies = companies
+      const recommendedCompanies = allCompanies
         .map(company => {
           let score = 0;
           
           // Match por industria/intereses
-          if (interests && interests.includes(company.industry)) {
+          if (interests && Array.isArray(interests) && interests.includes(company.industry)) {
             score += 30;
           }
           
           // Match por cultura
-          if (culture && company.cultureValues && company.cultureValues.includes(culture)) {
+          if (culture && company.cultureValues && Array.isArray(company.cultureValues) && company.cultureValues.includes(culture)) {
             score += 25;
           }
           
           // Match por beneficios
-          if (benefits && company.benefits && company.benefits.includes(benefits)) {
+          if (benefits && company.benefits && Array.isArray(company.benefits) && company.benefits.includes(benefits)) {
             score += 25;
           }
           
@@ -72,7 +81,7 @@ export default function handler(req, res) {
         .slice(0, 10);
 
       const summary = {
-        totalMatches: companies.length,
+        totalMatches: allCompanies.length,
         strongMatches: recommendedCompanies.filter(c => c.matchScore >= 80).length,
         goodMatches: recommendedCompanies.filter(c => c.matchScore >= 60).length,
       };
@@ -94,15 +103,15 @@ export default function handler(req, res) {
 function generateMatchReasons(company, interests, culture, benefits) {
   const reasons = [];
   
-  if (interests && interests.includes(company.industry)) {
+  if (interests && Array.isArray(interests) && interests.includes(company.industry)) {
     reasons.push(`Tu industria de interés: ${company.industry}`);
   }
   
-  if (culture && company.cultureValues && company.cultureValues.includes(culture)) {
+  if (culture && company.cultureValues && Array.isArray(company.cultureValues) && company.cultureValues.includes(culture)) {
     reasons.push(`Alineación cultural: ${culture}`);
   }
   
-  if (benefits && company.benefits && company.benefits.includes(benefits)) {
+  if (benefits && company.benefits && Array.isArray(company.benefits) && company.benefits.includes(benefits)) {
     reasons.push(`Beneficio que buscas: ${benefits}`);
   }
   
