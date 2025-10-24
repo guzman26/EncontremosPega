@@ -35,69 +35,77 @@ const WorkPreferencesStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
 
   return (
     <>
-
-      <div className="step-form">
+      <div className="step-content">
         {/* Location Preference */}
-        <div className="form-group">
-          <label className="form-label">
-            📍 ¿Dónde prefieres trabajar?
-          </label>
-          <div className="choice-grid compact">
+        <div className="preference-section">
+          <div className="step-header">
+            <h3>📍 ¿Dónde prefieres trabajar?</h3>
+          </div>
+          <div className="preference-grid">
             {locationOptions.map((location) => (
               <div
                 key={location.id}
-                className={`choice-item compact ${data.location === location.id ? 'selected' : ''}`}
+                className={`preference-card ${data.location === location.id ? 'selected' : ''}`}
                 onClick={() => handleLocationChange(location.id)}
               >
-                <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>
-                  {location.icon}
+                <div className="preference-icon">{location.icon}</div>
+                <div className="preference-content">
+                  <h4>{location.name}</h4>
+                  <p>{location.description}</p>
                 </div>
-                <h3>{location.name}</h3>
-                <p>{location.description}</p>
+                {data.location === location.id && (
+                  <div className="preference-check">✓</div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
         {/* Schedule Preference */}
-        <div className="form-group">
-          <label className="form-label">
-            ⏱️ ¿Qué tipo de horario prefieres?
-          </label>
-          <div className="choice-grid compact">
+        <div className="preference-section">
+          <div className="step-header">
+            <h3>⏱️ ¿Qué tipo de horario prefieres?</h3>
+          </div>
+          <div className="preference-grid">
             {scheduleOptions.map((schedule) => (
               <div
                 key={schedule.id}
-                className={`choice-item compact ${data.schedule === schedule.id ? 'selected' : ''}`}
+                className={`preference-card ${data.schedule === schedule.id ? 'selected' : ''}`}
                 onClick={() => handleScheduleChange(schedule.id)}
               >
-                <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>
-                  {schedule.icon}
+                <div className="preference-icon">{schedule.icon}</div>
+                <div className="preference-content">
+                  <h4>{schedule.name}</h4>
+                  <p>{schedule.description}</p>
                 </div>
-                <h3>{schedule.name}</h3>
-                <p>{schedule.description}</p>
+                {data.schedule === schedule.id && (
+                  <div className="preference-check">✓</div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
         {/* Salary Expectation */}
-        <div className="form-group">
-          <label className="form-label">
-            💰 ¿Cuáles son tus expectativas salariales?
-          </label>
-          <div className="choice-grid compact">
+        <div className="preference-section">
+          <div className="step-header">
+            <h3>💰 ¿Cuáles son tus expectativas salariales?</h3>
+          </div>
+          <div className="preference-grid">
             {salaryRanges.map((salary) => (
               <div
                 key={salary.id}
-                className={`choice-item compact ${data.salary === salary.id ? 'selected' : ''}`}
+                className={`preference-card ${data.salary === salary.id ? 'selected' : ''}`}
                 onClick={() => handleSalaryChange(salary.id)}
               >
-                <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>
-                  {salary.icon}
+                <div className="preference-icon">{salary.icon}</div>
+                <div className="preference-content">
+                  <h4>{salary.name}</h4>
+                  <p>{salary.description}</p>
                 </div>
-                <h3>{salary.name}</h3>
-                <p>{salary.description}</p>
+                {data.salary === salary.id && (
+                  <div className="preference-check">✓</div>
+                )}
               </div>
             ))}
           </div>

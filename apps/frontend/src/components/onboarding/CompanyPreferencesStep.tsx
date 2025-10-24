@@ -40,69 +40,77 @@ const CompanyPreferencesStep: React.FC<FormStepProps> = ({ data, onUpdate }) => 
 
   return (
     <>
-
-      <div className="step-form">
+      <div className="step-content">
         {/* Company Size */}
-        <div className="form-group">
-          <label className="form-label">
-            🏢 ¿Qué tamaño de empresa prefieres?
-          </label>
-          <div className="choice-grid compact">
+        <div className="preference-section">
+          <div className="step-header">
+            <h3>🏢 ¿Qué tamaño de empresa prefieres?</h3>
+          </div>
+          <div className="preference-grid">
             {companySizes.map((size) => (
               <div
                 key={size.id}
-                className={`choice-item compact ${data.size === size.id ? 'selected' : ''}`}
+                className={`preference-card ${data.size === size.id ? 'selected' : ''}`}
                 onClick={() => handleSizeSelection(size.id)}
               >
-                <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>
-                  {size.icon}
+                <div className="preference-icon">{size.icon}</div>
+                <div className="preference-content">
+                  <h4>{size.name}</h4>
+                  <p>{size.description}</p>
                 </div>
-                <h3>{size.name}</h3>
-                <p>{size.description}</p>
+                {data.size === size.id && (
+                  <div className="preference-check">✓</div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
         {/* Culture Values */}
-        <div className="form-group">
-          <label className="form-label">
-            💫 ¿Qué valores son más importantes para ti?
-          </label>
-          <div className="choice-grid compact">
+        <div className="preference-section">
+          <div className="step-header">
+            <h3>💫 ¿Qué valores son más importantes para ti?</h3>
+          </div>
+          <div className="preference-grid">
             {cultureValues.map((culture) => (
               <div
                 key={culture.id}
-                className={`choice-item compact ${data.culture === culture.id ? 'selected' : ''}`}
+                className={`preference-card ${data.culture === culture.id ? 'selected' : ''}`}
                 onClick={() => handleCultureSelection(culture.id)}
               >
-                <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>
-                  {culture.icon}
+                <div className="preference-icon">{culture.icon}</div>
+                <div className="preference-content">
+                  <h4>{culture.name}</h4>
+                  <p>{culture.description}</p>
                 </div>
-                <h3>{culture.name}</h3>
-                <p>{culture.description}</p>
+                {data.culture === culture.id && (
+                  <div className="preference-check">✓</div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
         {/* Benefits */}
-        <div className="form-group">
-          <label className="form-label">
-            🎁 ¿Qué beneficio priorizas más?
-          </label>
-          <div className="choice-grid compact">
+        <div className="preference-section">
+          <div className="step-header">
+            <h3>🎁 ¿Qué beneficio priorizas más?</h3>
+          </div>
+          <div className="preference-grid">
             {benefits.map((benefit) => (
               <div
                 key={benefit.id}
-                className={`choice-item compact ${data.benefits === benefit.id ? 'selected' : ''}`}
+                className={`preference-card ${data.benefits === benefit.id ? 'selected' : ''}`}
                 onClick={() => handleBenefitSelection(benefit.id)}
               >
-                <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>
-                  {benefit.icon}
+                <div className="preference-icon">{benefit.icon}</div>
+                <div className="preference-content">
+                  <h4>{benefit.name}</h4>
+                  <p>{benefit.description}</p>
                 </div>
-                <h3>{benefit.name}</h3>
-                <p>{benefit.description}</p>
+                {data.benefits === benefit.id && (
+                  <div className="preference-check">✓</div>
+                )}
               </div>
             ))}
           </div>

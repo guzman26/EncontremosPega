@@ -3,18 +3,18 @@ import { FormStepProps } from '../../types';
 
 const InterestsStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
   const interests = [
-    { id: 'marketing', name: 'Marketing Digital', icon: '📈' },
-    { id: 'finance', name: 'Finanzas', icon: '💰' },
-    { id: 'operations', name: 'Operaciones', icon: '⚙️' },
-    { id: 'pricing', name: 'Pricing & Revenue', icon: '💲' },
-    { id: 'strategy', name: 'Estrategia Empresarial', icon: '🎯' },
-    { id: 'product', name: 'Gestión de Productos', icon: '📱' },
-    { id: 'sales', name: 'Ventas', icon: '🤝' },
-    { id: 'hr', name: 'Recursos Humanos', icon: '👥' },
-    { id: 'analytics', name: 'Analytics & Data', icon: '📊' },
-    { id: 'tech', name: 'Tecnología', icon: '💻' },
-    { id: 'design', name: 'Diseño & UX', icon: '🎨' },
-    { id: 'legal', name: 'Legal & Compliance', icon: '⚖️' },
+    { id: 'marketing', name: 'Marketing Digital', icon: '📈', subtitle: 'Performance, Growth, Content' },
+    { id: 'finance', name: 'Finanzas', icon: '💰', subtitle: 'Fintech, Inversiones, CFO' },
+    { id: 'operations', name: 'Operaciones', icon: '⚙️', subtitle: 'Procesos, Logística, Ops' },
+    { id: 'pricing', name: 'Pricing & Revenue', icon: '💲', subtitle: 'Monetización, Revenue Ops' },
+    { id: 'strategy', name: 'Estrategia Empresarial', icon: '🎯', subtitle: 'Business Strategy, M&A' },
+    { id: 'product', name: 'Gestión de Productos', icon: '📱', subtitle: 'Product Management, UX' },
+    { id: 'sales', name: 'Ventas', icon: '🤝', subtitle: 'B2B, B2C, Sales Ops' },
+    { id: 'hr', name: 'Recursos Humanos', icon: '👥', subtitle: 'People Ops, Talent, Culture' },
+    { id: 'analytics', name: 'Analytics & Data', icon: '📊', subtitle: 'Data Science, BI, ML' },
+    { id: 'tech', name: 'Tecnología', icon: '💻', subtitle: 'Software, DevOps, Cloud' },
+    { id: 'design', name: 'Diseño & UX', icon: '🎨', subtitle: 'UI/UX, Brand, Creative' },
+    { id: 'legal', name: 'Legal & Compliance', icon: '⚖️', subtitle: 'Corporate, IP, Compliance' },
   ];
 
   const selectedInterests = data.interests || [];
@@ -34,50 +34,35 @@ const InterestsStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
 
   return (
     <>
+      <div className="step-content">
+        <div className="step-header">
+          <h3>🎯 Selecciona tus Áreas de Interés</h3>
+          <p>Elige al menos 2 áreas en las que te gustaría crecer</p>
+        </div>
 
-      <div className="step-form">
-        <div className="choice-grid">
+        <div className="interests-grid">
           {interests.map((interest) => (
             <div
               key={interest.id}
-              className={`choice-item ${
+              className={`interest-card ${
                 selectedInterests.includes(interest.id) ? 'selected' : ''
               }`}
               onClick={() => handleInterestToggle(interest.id)}
             >
-              <div style={{ fontSize: '1.8rem', marginBottom: '0.3rem' }}>
-                {interest.icon}
+              <div className="interest-icon">{interest.icon}</div>
+              <div className="interest-content">
+                <h4>{interest.name}</h4>
+                <p>{interest.subtitle}</p>
               </div>
-              <h3>{interest.name}</h3>
-              <p>
-                {interest.id === 'marketing' && 'Performance, Growth, Content'}
-                {interest.id === 'finance' && 'Fintech, Inversiones, CFO'}
-                {interest.id === 'operations' && 'Procesos, Logística, Ops'}
-                {interest.id === 'pricing' && 'Monetización, Revenue Ops'}
-                {interest.id === 'strategy' && 'Business Strategy, M&A'}
-                {interest.id === 'product' && 'Product Management, UX'}
-                {interest.id === 'sales' && 'B2B, B2C, Sales Ops'}
-                {interest.id === 'hr' && 'People Ops, Talent, Culture'}
-                {interest.id === 'analytics' && 'Data Science, BI, ML'}
-                {interest.id === 'tech' && 'Software, DevOps, Cloud'}
-                {interest.id === 'design' && 'UI/UX, Brand, Creative'}
-                {interest.id === 'legal' && 'Corporate, IP, Compliance'}
-              </p>
+              {selectedInterests.includes(interest.id) && (
+                <div className="interest-check">✓</div>
+              )}
             </div>
           ))}
         </div>
 
         {selectedInterests.length < 2 && (
-          <div style={{ 
-            marginTop: '1.5rem', 
-            padding: '1rem', 
-            background: 'rgba(249, 115, 22, 0.1)', 
-            border: '1px solid rgba(249, 115, 22, 0.3)',
-            borderRadius: '12px',
-            color: '#ea580c',
-            textAlign: 'center',
-            fontWeight: '500'
-          }}>
+          <div className="alert alert-info">
             💡 Selecciona al menos 2 áreas para continuar
           </div>
         )}
