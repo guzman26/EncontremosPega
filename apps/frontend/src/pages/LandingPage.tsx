@@ -1,73 +1,107 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LandingPage.css';
-import cityBackground from '../assets/FondoStgo.jpeg';
 
 const LandingPage: React.FC = () => {
-  const [isZooming, setIsZooming] = useState(false);
   const navigate = useNavigate();
 
-  const handleContinue = () => {
-    setIsZooming(true);
-    
-    // Navigate after animation completes
-    setTimeout(() => {
-      navigate('/onboarding');
-    }, 4500);
-  };
-
   return (
-    <div className={`landing-page ${isZooming ? 'zooming' : ''}`}>
-      {/* Santiago Background */}
-      <div className="city-background">
-        <img src={cityBackground} alt="Santiago Background" className="city-background-image" />
-        <div className="city-skyline"></div>
-        <div className="clouds"></div>
-      </div>
-      
-      {/* Office Interior */}
-      <div className="office-interior">
-        <div className="window-frame"></div>
-        <div className="desk"></div>
-        <div className="desk-items">
-          <div className="coffee-cup"></div>
-          <div className="notebook"></div>
-          <div className="pen"></div>
-        </div>
-        
-        {/* Laptop */}
-        <div className="laptop-container">
-          <div className="laptop">
-            <div className="laptop-screen">
-                              <div className="screen-content">
-                  <div className="welcome-text">
-                    <h1>EncuentraPega</h1>
-                    <p>Tu siguiente oportunidad laboral te está esperando</p>
-                  </div>
-                </div>
+    <div className="landing-page">
+      {/* Hero Section */}
+      <div className="landing-hero">
+        <div className="container">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Tu próxima oportunidad laboral te espera
+            </h1>
+            <p className="hero-subtitle">
+              Descubre empresas que realmente se adaptan a tu perfil y objetivos profesionales. 
+              Conectamos talento con oportunidades de forma inteligente y personalizada.
+            </p>
+            <div className="hero-actions">
+              <button 
+                className="btn btn-primary btn-lg"
+                onClick={() => navigate('/onboarding')}
+              >
+                Comenzar →
+              </button>
+              <button 
+                className="btn btn-outline btn-lg"
+                onClick={() => navigate('/companies')}
+              >
+                Explorar Empresas
+              </button>
             </div>
-            <div className="laptop-keyboard"></div>
-            <div className="laptop-trackpad"></div>
           </div>
         </div>
       </div>
-      
-      {/* UI Elements */}
-      <div className="landing-ui">
-        <div className="logo-section">
-          <h1 className="main-title">EncuentraPega</h1>
-          <p className="main-subtitle">Tu siguiente oportunidad laboral te está esperando</p>
+
+      {/* Features Section */}
+      <section className="section">
+        <div className="container">
+          <div className="section-title">
+            <h2>¿Por qué EncuentraPega?</h2>
+            <p>Todo lo que necesitas para encontrar tu próximo trabajo</p>
+          </div>
+          <div className="grid grid-3">
+            <div className="feature-card">
+              <div className="feature-icon">🎯</div>
+              <h3>Recomendaciones Inteligentes</h3>
+              <p>Nuestro algoritmo analiza tu perfil para encontrar las empresas que mejor se adaptan a ti.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">🔍</div>
+              <h3>Búsqueda Avanzada</h3>
+              <p>Filtra por industria, tamaño, beneficios y ubicación para encontrar exactamente lo que buscas.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📊</div>
+              <h3>Información Completa</h3>
+              <p>Accede a detalles sobre cultura, beneficios y posiciones abiertas en cada empresa.</p>
+            </div>
+          </div>
         </div>
-        
-        <button 
-          className="continue-button"
-          onClick={handleContinue}
-          disabled={isZooming}
-        >
-          {isZooming ? 'Cargando...' : 'Continuar'}
-          <span className="button-arrow">→</span>
-        </button>
-      </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="section bg-dark">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-value">100+</div>
+              <div className="stat-label">Empresas</div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-value">17</div>
+              <div className="stat-label">Industrias</div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-value">500+</div>
+              <div className="stat-label">Posiciones</div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-value">95%</div>
+              <div className="stat-label">Satisfacción</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section">
+        <div className="container">
+          <div className="cta-box">
+            <h2>¿Listo para encontrar tu siguiente oportunidad?</h2>
+            <p>Completa un rápido perfil y recibe recomendaciones personalizadas</p>
+            <button 
+              className="btn btn-primary btn-lg"
+              onClick={() => navigate('/onboarding')}
+            >
+              Crear Perfil Ahora
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

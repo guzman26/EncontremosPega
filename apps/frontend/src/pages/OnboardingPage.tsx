@@ -1,11 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserProfile, FormStep } from '../types';
+import type { UserProfile, FormStep } from '../types';
 import PersonalInfoStep from '../components/onboarding/PersonalInfoStep';
 import InterestsStep from '../components/onboarding/InterestsStep';
 import CompanyPreferencesStep from '../components/onboarding/CompanyPreferencesStep';
 import WorkPreferencesStep from '../components/onboarding/WorkPreferencesStep';
 import './OnboardingPage.css';
+
+const ONBOARDING_STEPS: FormStep[] = [
+  {
+    id: 1,
+    title: 'Tu Nivel',
+    subtitle: 'Solo tu experiencia',
+    component: PersonalInfoStep,
+  },
+  {
+    id: 2,
+    title: 'Tus Intereses',
+    subtitle: 'Tecnologías que te gustan',
+    component: InterestsStep,
+  },
+  {
+    id: 3,
+    title: 'Tipo de Empresa',
+    subtitle: 'Tamaño y cultura ideal',
+    component: CompanyPreferencesStep,
+  },
+  {
+    id: 4,
+    title: 'Modalidad de Trabajo',
+    subtitle: 'Remoto, híbrido o presencial',
+    component: WorkPreferencesStep,
+  },
+];
 
 const OnboardingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -17,34 +44,7 @@ const OnboardingPage: React.FC = () => {
     workPreferences: {}
   });
 
-  const steps: FormStep[] = [
-    {
-      id: 1,
-      title: 'Tu Nivel',
-      subtitle: 'Solo tu experiencia',
-      component: PersonalInfoStep,
-    },
-    {
-      id: 2,
-      title: 'Tus Intereses',
-      subtitle: 'Tecnologías que te gustan',
-      component: InterestsStep,
-    },
-    {
-      id: 3,
-      title: 'Tipo de Empresa',
-      subtitle: 'Tamaño y cultura ideal',
-      component: CompanyPreferencesStep,
-    },
-    {
-      id: 4,
-      title: 'Modalidad de Trabajo',
-      subtitle: 'Remoto, híbrido o presencial',
-      component: WorkPreferencesStep,
-    },
-  ];
-
-  const updateStepData = (stepData: any) => {
+  const updateStepData = useCallback((stepData: any) => {
     setFormData(prev => {
       switch (currentStep) {
         case 0:
@@ -59,43 +59,28 @@ const OnboardingPage: React.FC = () => {
           return prev;
       }
     });
-  };
+  }, [currentStep]);
 
-  const handleNext = () => {
-    if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
-    } else {
-      // Save profile and navigate to results
-      localStorage.setItem('userProfile', JSON.stringify(formData));
-      navigate('/recommendations');
-    }
-  };
+  const isStepValid = useCallback((): boolean => {
+    const personalInfo = formData.personalInfo as any;
+    const companyPrefs = formData.companyPreferences;
+    const workPrefs = formData.workPreferences;
 
-  const handlePrevious = () => {
-    if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-    }
-  };
-
-  const isStepValid = () => {
     switch (currentStep) {
       case 0:
-        const personalInfo = formData.personalInfo as any;
         return Boolean(personalInfo?.level);
       case 1:
-        return formData.interests && formData.interests.length >= 2;
+        return (formData.interests && formData.interests.length >= 2) || false;
       case 2:
-        const companyPrefs = formData.companyPreferences;
         return Boolean(companyPrefs?.size && companyPrefs?.culture && companyPrefs?.benefits);
       case 3:
-        const workPrefs = formData.workPreferences;
         return Boolean(workPrefs?.location && workPrefs?.schedule);
       default:
         return false;
     }
-  };
+  }, [currentStep, formData]);
 
-  const getCurrentStepData = () => {
+  const getCurrentStepData = useCallback(() => {
     switch (currentStep) {
       case 0:
         return formData.personalInfo || {};
@@ -108,11 +93,29 @@ const OnboardingPage: React.FC = () => {
       default:
         return {};
     }
-  };
+  }, [currentStep, formData]);
 
-  const getCurrentStep = steps[currentStep];
-  const CurrentStepComponent = getCurrentStep.component;
-  const progressPercentage = ((currentStep + 1) / steps.length) * 100;
+  const handleNext = useCallback(() => {
+    if (currentStep < ONBOARDING_STEPS.length - 1) {
+      setCurrentStep(currentStep + 1);
+    } else {
+      // Save profile and navigate to recommendations
+      console.log('Saving profile:', formData);
+      localStorage.setItem('userProfile', JSON.stringify(formData));
+      console.log('Profile saved, navigating to recommendations');
+      navigate('/recommendations');
+    }
+  }, [currentStep, formData, navigate]);
+
+  const handlePrevious = useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  }, [currentStep]);
+
+  const currentStepConfig = ONBOARDING_STEPS[currentStep];
+  const CurrentStepComponent = currentStepConfig.component;
+  const progressPercentage = ((currentStep + 1) / ONBOARDING_STEPS.length) * 100;
 
   return (
     <div className="onboarding-page">
@@ -120,24 +123,24 @@ const OnboardingPage: React.FC = () => {
         {/* Progress Header */}
         <div className="progress-header">
           <h2>🎯 Encuentra tu empresa ideal</h2>
-          <p>Paso {currentStep + 1} de {steps.length}: {getCurrentStep.title}</p>
-          
+          <p>Paso {currentStep + 1} de {ONBOARDING_STEPS.length}: {currentStepConfig.title}</p>
+
           {/* Progress Bar */}
           <div className="progress-bar">
-            <div 
-              className="progress-fill" 
+            <div
+              className="progress-fill"
               style={{ width: `${progressPercentage}%` }}
             />
           </div>
-          
+
           {/* Step Dots */}
           <div className="step-indicator">
-            {steps.map((_, index) => (
+            {ONBOARDING_STEPS.map((_, index) => (
               <div
                 key={index}
                 className={`step-dot ${
-                  index === currentStep ? 'active' : 
-                  index < currentStep ? 'completed' : ''
+                  index === currentStep ? 'active' :
+                    index < currentStep ? 'completed' : ''
                 }`}
               />
             ))}
@@ -154,7 +157,7 @@ const OnboardingPage: React.FC = () => {
           {/* Navigation */}
           <div className="step-navigation">
             {currentStep > 0 ? (
-              <button 
+              <button
                 onClick={handlePrevious}
                 className="nav-button secondary"
               >
@@ -163,13 +166,13 @@ const OnboardingPage: React.FC = () => {
             ) : (
               <div></div>
             )}
-            
-            <button 
+
+            <button
               onClick={handleNext}
               className="nav-button primary"
               disabled={!isStepValid()}
             >
-              {currentStep === steps.length - 1 ? (
+              {currentStep === ONBOARDING_STEPS.length - 1 ? (
                 <>🎯 Ver Recomendaciones</>
               ) : (
                 <>Siguiente →</>

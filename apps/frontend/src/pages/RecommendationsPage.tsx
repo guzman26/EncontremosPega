@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserProfile } from '../types';
-import { Company, RecommendationStats, apiService } from '../services/api';
+import type { UserProfile, Company } from '../types';
+import type { RecommendationStats } from '../types/api.types';
+import { apiService } from '../services/api';
 import './RecommendationsPage.css';
 
 const RecommendationsPage: React.FC = () => {
@@ -10,110 +11,143 @@ const RecommendationsPage: React.FC = () => {
   const [recommendations, setRecommendations] = useState<Company[]>([]);
   const [stats, setStats] = useState<RecommendationStats | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const validateUserProfile = useCallback((profile: any): profile is UserProfile => {
+    // Check if profile has the minimum required structure
+    const hasMinimalData = (
+      profile &&
+      typeof profile === 'object' &&
+      Array.isArray(profile.interests) &&
+      profile.interests.length >= 2 &&
+      profile.companyPreferences?.size &&
+      profile.workPreferences?.location
+    );
+
+    console.log('Validating profile:', profile);
+    console.log('Has minimal data:', hasMinimalData);
+
+    return hasMinimalData;
+  }, []);
 
   useEffect(() => {
-    const profileData = localStorage.getItem('userProfile');
-    if (!profileData) {
-      navigate('/onboarding');
-      return;
-    }
-
     const loadRecommendations = async () => {
+      setLoading(true);
+      setError(null);
+
       try {
-        const profile = JSON.parse(profileData) as UserProfile;
-        
-        // Validate profile structure
-        if (!profile.personalInfo || !profile.interests || !profile.companyPreferences || !profile.workPreferences) {
+        const profileData = localStorage.getItem('userProfile');
+        if (!profileData) {
+          navigate('/onboarding');
+          return;
+        }
+
+        const profile = JSON.parse(profileData) as any;
+
+        if (!validateUserProfile(profile)) {
           console.warn('Invalid profile structure, redirecting to onboarding');
           localStorage.removeItem('userProfile');
           navigate('/onboarding');
           return;
         }
-        
+
         setUserProfile(profile);
 
-        // Map profile to API format
-        const apiProfile = {
-          email: profile.personalInfo?.email || '',
-          name: profile.personalInfo?.name,
-          interests: profile.interests,
-          workPreferences: {
-            location: profile.workPreferences?.location as 'remote' | 'hybrid' | 'office',
-            schedule: profile.workPreferences?.schedule as 'full-time' | 'part-time'
-          },
-          companyPreferences: {
-            size: profile.companyPreferences?.size as 'startup' | 'medium' | 'large',
-            culture: profile.companyPreferences?.culture,
-            benefits: profile.companyPreferences?.benefits
-          }
-        };
-
-        // Get recommendations from backend
-        const response = await apiService.getRecommendations(apiProfile);
+        // Map profile to API format - simply pass the profile as-is since types are aligned
+        const response = await apiService.getRecommendations(profile);
         setRecommendations(response.recommendations);
         setStats(response.stats);
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : 'Error cargando recomendaciones';
+        setError(errorMessage);
+        console.error('Error loading recommendations:', err);
+      } finally {
         setLoading(false);
-      } catch (error) {
-        console.error('Error loading recommendations:', error);
-        localStorage.removeItem('userProfile');
-        navigate('/onboarding');
       }
     };
 
     loadRecommendations();
-  }, [navigate]);
+  }, [navigate, validateUserProfile]);
 
-  const handleStartOver = () => {
+  const handleStartOver = useCallback(() => {
     localStorage.removeItem('userProfile');
     navigate('/onboarding');
-  };
+  }, [navigate]);
 
-  const handleExploreAll = async () => {
+  const handleExploreAll = useCallback(async () => {
     setLoading(true);
+    setError(null);
+
     try {
       const allCompanies = await apiService.getAllCompanies();
       setRecommendations(allCompanies);
-      // Reset stats when showing all companies
       setStats(null);
-    } catch (error) {
-      console.error('Error loading all companies:', error);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Error cargando empresas';
+      setError(errorMessage);
+      console.error('Error loading all companies:', err);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  if (loading) {
-    return (
-      <div className="recommendations-page loading">
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <h2>Analizando tu perfil...</h2>
-          <p>Encontrando las mejores empresas para ti</p>
+  const navigateToCompanies = useCallback(() => {
+    navigate('/companies');
+  }, [navigate]);
+
+  const renderLoadingState = () => (
+    <div className="recommendations-page loading">
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <h2>Analizando tu perfil...</h2>
+        <p>Encontrando las mejores empresas para ti</p>
+      </div>
+    </div>
+  );
+
+  const renderErrorState = () => (
+    <div className="recommendations-page error">
+      <div className="error-container">
+        <h2>⚠️ Error al cargar recomendaciones</h2>
+        <p>{error}</p>
+        <div className="error-actions">
+          <button className="btn-primary" onClick={handleStartOver}>
+            Volver al Onboarding
+          </button>
+          <button className="btn-secondary" onClick={navigateToCompanies}>
+            Ver Directorio de Empresas
+          </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+
+  if (loading) return renderLoadingState();
+  if (error) return renderErrorState();
+  if (!userProfile) return renderLoadingState();
+
+  const userName = userProfile.personalInfo?.name?.split(' ')[0] || 'Usuario';
 
   return (
     <div className="recommendations-page">
       <div className="recommendations-container">
         {/* Header */}
         <div className="recommendations-header">
-          <h1>¡Hola {userProfile?.personalInfo?.name?.split(' ')[0]}! 👋</h1>
+          <h1>¡Hola {userName}! 👋</h1>
           <p>Basado en tu perfil, estas son las empresas que mejor se adaptan a ti:</p>
           <div className="profile-summary">
-            <span className="tag">{userProfile?.personalInfo?.career}</span>
-            <span className="tag">{userProfile?.interests?.length} intereses</span>
-            <span className="tag">{userProfile?.companyPreferences?.size}</span>
-            <span className="tag">{userProfile?.workPreferences?.location}</span>
+            <span className="tag">{userProfile.personalInfo?.career}</span>
+            <span className="tag">{userProfile.interests?.length} intereses</span>
+            <span className="tag">{userProfile.companyPreferences?.size}</span>
+            <span className="tag">{userProfile.workPreferences?.location}</span>
           </div>
         </div>
 
         {/* Results Summary */}
         <div className="results-summary">
-          <h3>📊 {stats ? 
-            `Encontramos ${stats.recommendedCompanies} empresas perfectas para ti` : 
-            `Explorando ${recommendations.length} empresas`
+          <h3>📊 {stats
+            ? `Encontramos ${stats.recommendedCompanies} empresas perfectas para ti`
+            : `Explorando ${recommendations.length} empresas`
           }</h3>
           <div className="summary-stats">
             {stats ? (
@@ -138,17 +172,23 @@ const RecommendationsPage: React.FC = () => {
             ) : (
               <>
                 <div className="stat">
-                  <span className="stat-number">{recommendations.filter(c => c.matchPercentage && c.matchPercentage >= 85).length}</span>
+                  <span className="stat-number">
+                    {recommendations.filter(c => c.matchPercentage && c.matchPercentage >= 85).length}
+                  </span>
                   <span className="stat-label">Match Alto</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">{recommendations.filter(c => c.size === userProfile?.companyPreferences?.size).length}</span>
+                  <span className="stat-number">
+                    {recommendations.filter(c => c.size === userProfile?.companyPreferences?.size).length}
+                  </span>
                   <span className="stat-label">Tamaño Ideal</span>
                 </div>
                 <div className="stat">
-                  <span className="stat-number">{recommendations.filter(c => 
-                    c.culture.includes(userProfile?.companyPreferences?.culture || '')
-                  ).length}</span>
+                  <span className="stat-number">
+                    {recommendations.filter(c =>
+                      c.culture.includes(userProfile?.companyPreferences?.culture || '')
+                    ).length}
+                  </span>
                   <span className="stat-label">Cultura Afín</span>
                 </div>
               </>
@@ -158,8 +198,22 @@ const RecommendationsPage: React.FC = () => {
 
         {/* Company Cards */}
         <div className="companies-grid">
-          {recommendations.map((company) => (
-            <div key={company.id} className="company-card">
+          {recommendations.length === 0 ? (
+            <div className="no-results" style={{ gridColumn: '1/-1' }}>
+              <div className="no-results-icon">🎯</div>
+              <h3>Sin recomendaciones disponibles</h3>
+              <p>No pudimos generar recomendaciones en este momento. Intenta:</p>
+              <ul style={{ textAlign: 'left', display: 'inline-block', marginTop: '1rem' }}>
+                <li>Cambiar tus preferencias</li>
+                <li>Explorar el directorio completo de empresas</li>
+              </ul>
+              <button onClick={handleExploreAll} className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
+                Ver Todas las Empresas
+              </button>
+            </div>
+          ) : (
+            recommendations.map((company) => (
+              <div key={company.id} className="company-card">
               <div className="company-header">
                 <div className="company-logo">
                   <img src={company.logo} alt={company.name} />
@@ -171,9 +225,11 @@ const RecommendationsPage: React.FC = () => {
                     {'★'.repeat(Math.floor(company.rating))} {company.rating}
                   </div>
                 </div>
-                <div className="match-badge">
-                  {company.matchPercentage}% Match
-                </div>
+                {company.matchPercentage && (
+                  <div className="match-badge">
+                    {company.matchPercentage}% Match
+                  </div>
+                )}
               </div>
 
               <div className="company-description">
@@ -194,9 +250,9 @@ const RecommendationsPage: React.FC = () => {
               <div className="company-culture">
                 <h4>Cultura</h4>
                 <div className="tags">
-                  {company.culture.slice(0, 3).map((cult, index) => (
-                    <span 
-                      key={index} 
+                  {company.culture.slice(0, 3).map((cult: string, index: number) => (
+                    <span
+                      key={index}
                       className={`tag ${userProfile?.companyPreferences?.culture === cult ? 'highlighted' : ''}`}
                     >
                       {cult}
@@ -208,9 +264,9 @@ const RecommendationsPage: React.FC = () => {
               <div className="company-benefits">
                 <h4>Beneficios</h4>
                 <div className="tags">
-                  {company.benefits.slice(0, 3).map((benefit, index) => (
-                    <span 
-                      key={index} 
+                  {company.benefits.slice(0, 3).map((benefit: string, index: number) => (
+                    <span
+                      key={index}
                       className={`tag ${userProfile?.companyPreferences?.benefits === benefit ? 'highlighted' : ''}`}
                     >
                       {benefit}
@@ -222,14 +278,14 @@ const RecommendationsPage: React.FC = () => {
               <div className="company-positions">
                 <h4>Posiciones Abiertas</h4>
                 <ul>
-                  {company.openPositions.slice(0, 3).map((position, index) => (
+                  {company.openPositions.slice(0, 3).map((position: string, index: number) => (
                     <li key={index}>{position}</li>
                   ))}
                 </ul>
               </div>
 
               <div className="company-actions">
-                <button 
+                <button
                   className="btn-primary"
                   onClick={() => window.open(company.website, '_blank')}
                 >
@@ -240,26 +296,27 @@ const RecommendationsPage: React.FC = () => {
                 </button>
               </div>
             </div>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Action Buttons */}
         <div className="recommendations-actions">
-          <button 
+          <button
             className="btn-secondary"
             onClick={handleStartOver}
           >
             🔄 Cambiar Preferencias
           </button>
-          <button 
+          <button
             className="btn-outline"
             onClick={handleExploreAll}
           >
             🔍 Ver Todas las Empresas (Aquí)
           </button>
-          <button 
+          <button
             className="btn-primary"
-            onClick={() => navigate('/companies')}
+            onClick={navigateToCompanies}
           >
             🏢 Explorar Directorio Completo
           </button>
@@ -267,9 +324,9 @@ const RecommendationsPage: React.FC = () => {
 
         {/* Floating Action Button */}
         <div className="floating-action">
-          <button 
+          <button
             className="fab"
-            onClick={() => navigate('/companies')}
+            onClick={navigateToCompanies}
             title="Ver directorio completo de empresas"
           >
             🏢

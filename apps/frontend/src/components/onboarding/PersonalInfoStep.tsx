@@ -8,48 +8,47 @@ const PersonalInfoStep: React.FC<FormStepProps> = ({ data, onUpdate }) => {
 
   return (
     <>
+      <div className="step-content">
+        <div className="step-header">
+          <h3>🎯 Tu Nivel de Experiencia</h3>
+          <p>Selecciona la opción que mejor describe tu experiencia</p>
+        </div>
 
-      <div className="step-form">
-        <div className="form-group">
-          <label className="form-label">
-            🎯 ¿Cuál es tu nivel de experiencia?
-          </label>
-          <div className="choice-grid compact">
-            <div
-              className={`choice-item compact ${data.level === 'student' ? 'selected' : ''}`}
-              onClick={() => handleInputChange('level', 'student')}
-            >
-              <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>🎓</div>
-              <h3>Estudiante</h3>
-              <p>Aún estudiando o recién egresado</p>
-            </div>
-            
-            <div
-              className={`choice-item compact ${data.level === 'junior' ? 'selected' : ''}`}
-              onClick={() => handleInputChange('level', 'junior')}
-            >
-              <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>🌱</div>
-              <h3>Junior</h3>
-              <p>0-2 años de experiencia</p>
-            </div>
-            
-            <div
-              className={`choice-item compact ${data.level === 'mid' ? 'selected' : ''}`}
-              onClick={() => handleInputChange('level', 'mid')}
-            >
-              <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>💼</div>
-              <h3>Semi-Senior</h3>
-              <p>2-5 años de experiencia</p>
-            </div>
-            
-            <div
-              className={`choice-item compact ${data.level === 'senior' ? 'selected' : ''}`}
-              onClick={() => handleInputChange('level', 'senior')}
-            >
-              <div style={{ fontSize: '1.2rem', marginBottom: '0.3rem' }}>🚀</div>
-              <h3>Senior</h3>
-              <p>5+ años de experiencia</p>
-            </div>
+        <div className="options-grid">
+          <div
+            className={`option-button ${data.level === 'student' ? 'selected' : ''}`}
+            onClick={() => handleInputChange('level', 'student')}
+          >
+            <div className="option-icon">🎓</div>
+            <div className="option-label">Estudiante</div>
+            <div className="option-description">Recién egresado</div>
+          </div>
+
+          <div
+            className={`option-button ${data.level === 'junior' ? 'selected' : ''}`}
+            onClick={() => handleInputChange('level', 'junior')}
+          >
+            <div className="option-icon">🌱</div>
+            <div className="option-label">Junior</div>
+            <div className="option-description">0-2 años</div>
+          </div>
+
+          <div
+            className={`option-button ${data.level === 'mid' ? 'selected' : ''}`}
+            onClick={() => handleInputChange('level', 'mid')}
+          >
+            <div className="option-icon">💼</div>
+            <div className="option-label">Semi-Senior</div>
+            <div className="option-description">2-5 años</div>
+          </div>
+
+          <div
+            className={`option-button ${data.level === 'senior' ? 'selected' : ''}`}
+            onClick={() => handleInputChange('level', 'senior')}
+          >
+            <div className="option-icon">🚀</div>
+            <div className="option-label">Senior</div>
+            <div className="option-description">5+ años</div>
           </div>
         </div>
       </div>
