@@ -15,19 +15,45 @@ const RecommendationsPage: React.FC = () => {
 
   const validateUserProfile = useCallback((profile: any): profile is UserProfile => {
     // Check if profile has the minimum required structure
-    const hasMinimalData = (
-      profile &&
-      typeof profile === 'object' &&
+    if (!profile || typeof profile !== 'object') {
+      console.log('Profile is not an object:', profile);
+      return false;
+    }
+
+    // Check interests - must be an array with at least 2 items
+    const interestsValid = (
       Array.isArray(profile.interests) &&
-      profile.interests.length >= 2 &&
-      profile.companyPreferences?.size &&
-      profile.workPreferences?.location
+      profile.interests.length >= 2
     );
 
-    console.log('Validating profile:', profile);
-    console.log('Has minimal data:', hasMinimalData);
+    // Check company preferences
+    const companyPrefsValid = (
+      profile.companyPreferences &&
+      typeof profile.companyPreferences === 'object' &&
+      profile.companyPreferences.size &&
+      profile.companyPreferences.culture &&
+      profile.companyPreferences.benefits
+    );
 
-    return hasMinimalData;
+    // Check work preferences
+    const workPrefsValid = (
+      profile.workPreferences &&
+      typeof profile.workPreferences === 'object' &&
+      profile.workPreferences.location &&
+      profile.workPreferences.schedule
+    );
+
+    const isValid = interestsValid && companyPrefsValid && workPrefsValid;
+
+    console.log('Validating profile:', {
+      profile,
+      interestsValid,
+      companyPrefsValid,
+      workPrefsValid,
+      isValid
+    });
+
+    return isValid;
   }, []);
 
   useEffect(() => {

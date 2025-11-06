@@ -13,6 +13,7 @@ import insurance from '../apps/backend/src/data/companies/insurance.json' with {
 import media from '../apps/backend/src/data/companies/media.json' with { type: 'json' };
 import mining from '../apps/backend/src/data/companies/mining.json' with { type: 'json' };
 import telecommunications from '../apps/backend/src/data/companies/telecommunications.json' with { type: 'json' };
+import financial from '../apps/backend/src/data/companies/financial.json' with { type: 'json' };
 
 const allCompanies = [
   ...technology,
@@ -30,6 +31,7 @@ const allCompanies = [
   ...media,
   ...mining,
   ...telecommunications,
+  ...financial,
 ];
 
 export default function handler(req, res) {

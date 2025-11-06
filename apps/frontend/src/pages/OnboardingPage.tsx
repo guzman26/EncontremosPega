@@ -37,9 +37,10 @@ const ONBOARDING_STEPS: FormStep[] = [
 const OnboardingPage: React.FC = () => {
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<Partial<UserProfile>>({
+  const [formData, setFormData] = useState<Partial<UserProfile & { selectedSubcategories?: Record<string, string[]> }>>({
     personalInfo: {},
     interests: [],
+    selectedSubcategories: {},
     companyPreferences: {},
     workPreferences: {}
   });
@@ -50,7 +51,11 @@ const OnboardingPage: React.FC = () => {
         case 0:
           return { ...prev, personalInfo: { ...prev.personalInfo, ...stepData } };
         case 1:
-          return { ...prev, interests: stepData.interests || prev.interests };
+          return { 
+            ...prev, 
+            interests: stepData.interests || prev.interests,
+            selectedSubcategories: stepData.selectedSubcategories || (prev as any).selectedSubcategories
+          };
         case 2:
           return { ...prev, companyPreferences: { ...prev.companyPreferences, ...stepData } };
         case 3:
@@ -70,7 +75,13 @@ const OnboardingPage: React.FC = () => {
       case 0:
         return Boolean(personalInfo?.level);
       case 1:
-        return (formData.interests && formData.interests.length >= 2) || false;
+        // Check if at least 2 subcategories are selected across all categories
+        const selectedSubcategories = (formData as any).selectedSubcategories || {};
+        const totalSubcategories = Object.values(selectedSubcategories).reduce(
+          (sum: number, subs: any) => sum + (Array.isArray(subs) ? subs.length : 0),
+          0
+        );
+        return totalSubcategories >= 2;
       case 2:
         return Boolean(companyPrefs?.size && companyPrefs?.culture && companyPrefs?.benefits);
       case 3:
@@ -85,7 +96,10 @@ const OnboardingPage: React.FC = () => {
       case 0:
         return formData.personalInfo || {};
       case 1:
-        return { interests: formData.interests || [] };
+        return { 
+          interests: formData.interests || [],
+          selectedSubcategories: (formData as any).selectedSubcategories || {}
+        };
       case 2:
         return formData.companyPreferences || {};
       case 3:
@@ -99,9 +113,21 @@ const OnboardingPage: React.FC = () => {
     if (currentStep < ONBOARDING_STEPS.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
+      // Extract interests from selectedSubcategories before saving
+      const selectedSubcategories = (formData as any).selectedSubcategories || {};
+      const interests = Object.values(selectedSubcategories).flat() as string[];
+      
+      // Create the final profile with properly formatted interests
+      const profileToSave: UserProfile = {
+        personalInfo: formData.personalInfo,
+        interests: interests.length > 0 ? interests : (formData.interests || []),
+        companyPreferences: formData.companyPreferences,
+        workPreferences: formData.workPreferences
+      };
+      
       // Save profile and navigate to recommendations
-      console.log('Saving profile:', formData);
-      localStorage.setItem('userProfile', JSON.stringify(formData));
+      console.log('Saving profile:', profileToSave);
+      localStorage.setItem('userProfile', JSON.stringify(profileToSave));
       console.log('Profile saved, navigating to recommendations');
       navigate('/recommendations');
     }

@@ -1,0 +1,829 @@
+/* =====================
+   WELCOME SCENE
+   First Impression - Manhattan Office with Mountain View
+   ===================== */
+
+.welcome-scene {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #1a1f2e 0%, #2d3748 100%);
+  perspective: 1000px;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.welcome-scene.fading-out {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* =====================
+   OFFICE INTERIOR
+   ===================== */
+
+.office-interior {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* Office Floor */
+.office-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: 
+    linear-gradient(180deg, rgba(45, 55, 72, 0.3) 0%, rgba(26, 32, 44, 0.8) 100%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 0px,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px,
+      transparent 100px
+    );
+  transform-origin: bottom;
+  transform: rotateX(65deg) translateZ(0);
+}
+
+/* Office Walls */
+.office-wall {
+  position: absolute;
+  height: 100%;
+  background: linear-gradient(to bottom, #2d3748 0%, #1a1f2e 100%);
+  box-shadow: inset -10px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.office-wall-left {
+  left: 0;
+  width: 25%;
+  transform: rotateY(-15deg) translateZ(-100px);
+  transform-origin: left;
+}
+
+.office-wall-right {
+  right: 0;
+  width: 25%;
+  transform: rotateY(15deg) translateZ(-100px);
+  transform-origin: right;
+  box-shadow: inset 10px 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Office Desk */
+.office-desk {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%) translateZ(50px);
+  width: 400px;
+  height: 20px;
+  background: linear-gradient(to bottom, #4a5568 0%, #2d3748 100%);
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 4px 4px 0 0;
+}
+
+.desk-monitor {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 80px;
+  background: #1a1f2e;
+  border: 2px solid #4a5568;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.desk-monitor::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  background: linear-gradient(135deg, #475569 0%, #334155 100%);
+  border-radius: 2px;
+}
+
+.desk-keyboard {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 8px;
+  background: #2d3748;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.desk-lamp {
+  position: absolute;
+  bottom: 25px;
+  left: 60%;
+  width: 4px;
+  height: 60px;
+  background: #4a5568;
+  transform: translateX(-50%);
+}
+
+.desk-lamp::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 15px;
+  background: #64748b;
+  border-radius: 15px 15px 2px 2px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.desk-plant {
+  position: absolute;
+  bottom: 18px;
+  right: 65%;
+  width: 20px;
+  height: 25px;
+  background: linear-gradient(to top, #22543d 0%, #2f855a 100%);
+  border-radius: 10px 10px 0 0;
+  transform: translateX(50%);
+}
+
+.desk-plant::before {
+  content: '🌿';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* =====================
+   OFFICE WINDOW - THE SURPRISE
+   ===================== */
+
+.office-window {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%) translateZ(100px);
+  width: 60%;
+  max-width: 800px;
+  height: 55%;
+  perspective: 1000px;
+  z-index: 10;
+}
+
+.window-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 12px solid #2d3748;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  box-shadow: 
+    0 0 0 4px rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(0, 0, 0, 0.5),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.window-frame::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
+}
+
+.window-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateX(-50%);
+}
+
+.window-glass {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+/* =====================
+   MOUNTAIN VIEW - THE SURPRISE
+   ===================== */
+
+.mountain-view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  animation: revealMountains 3s ease-out forwards;
+}
+
+@keyframes revealMountains {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Sky */
+.mountain-sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #87ceeb 0%,
+    #b0e0e6 20%,
+    #e0f6ff 40%,
+    #f0f8ff 60%,
+    #ffffff 100%
+  );
+  animation: skyShift 20s ease-in-out infinite;
+}
+
+@keyframes skyShift {
+  0%, 100% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    filter: hue-rotate(5deg) brightness(1.1);
+  }
+}
+
+/* Mountain Ranges */
+.mountain-range {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, #2d4a22 0%, #3d5a2d 100%);
+  clip-path: polygon(0 100%, 0 80%, 5% 70%, 10% 75%, 15% 60%, 20% 65%, 25% 50%, 30% 55%, 35% 40%, 40% 45%, 45% 35%, 50% 40%, 55% 30%, 60% 35%, 65% 25%, 70% 30%, 75% 20%, 80% 25%, 85% 15%, 90% 20%, 95% 10%, 100% 15%, 100% 100%);
+}
+
+.mountain-range-1 {
+  height: 100%;
+  background: linear-gradient(to top, #1a3d1a 0%, #2d5a2d 50%, #3d6a3d 100%);
+  opacity: 0.9;
+  z-index: 4;
+  animation: mountainMove1 30s ease-in-out infinite;
+}
+
+.mountain-range-2 {
+  height: 85%;
+  background: linear-gradient(to top, #2d4a22 0%, #3d5a2d 50%, #4d6a4d 100%);
+  opacity: 0.85;
+  z-index: 3;
+  transform: translateX(-5%);
+  animation: mountainMove2 35s ease-in-out infinite;
+}
+
+.mountain-range-3 {
+  height: 70%;
+  background: linear-gradient(to top, #3d5a2d 0%, #4d6a3d 50%, #5d7a5d 100%);
+  opacity: 0.8;
+  z-index: 2;
+  transform: translateX(5%);
+  animation: mountainMove3 40s ease-in-out infinite;
+}
+
+.mountain-range-4 {
+  height: 55%;
+  background: linear-gradient(to top, #4d6a3d 0%, #5d7a4d 50%, #6d8a6d 100%);
+  opacity: 0.75;
+  z-index: 1;
+  transform: translateX(-3%);
+  animation: mountainMove4 45s ease-in-out infinite;
+}
+
+@keyframes mountainMove1 {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(-2%) scale(1.01); }
+}
+
+@keyframes mountainMove2 {
+  0%, 100% { transform: translateX(-5%) scale(1); }
+  50% { transform: translateX(-3%) scale(1.01); }
+}
+
+@keyframes mountainMove3 {
+  0%, 100% { transform: translateX(5%) scale(1); }
+  50% { transform: translateX(7%) scale(1.01); }
+}
+
+@keyframes mountainMove4 {
+  0%, 100% { transform: translateX(-3%) scale(1); }
+  50% { transform: translateX(-1%) scale(1.01); }
+}
+
+/* Snow Caps */
+.snow-caps {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    rgba(255, 255, 255, 0.6) 60%,
+    transparent 100%
+  );
+  clip-path: polygon(0 0, 0 100%, 20% 80%, 40% 90%, 60% 70%, 80% 85%, 100% 75%, 100% 0);
+  z-index: 5;
+  animation: snowShimmer 8s ease-in-out infinite;
+}
+
+@keyframes snowShimmer {
+  0%, 100% {
+    opacity: 0.9;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2);
+  }
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  opacity: 0.7;
+  animation: cloudFloat 25s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+.cloud-1 {
+  width: 120px;
+  height: 60px;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.cloud-1::before {
+  width: 80px;
+  height: 80px;
+  top: -30px;
+  left: 20px;
+}
+
+.cloud-1::after {
+  width: 100px;
+  height: 70px;
+  top: -20px;
+  right: 20px;
+}
+
+.cloud-2 {
+  width: 100px;
+  height: 50px;
+  top: 25%;
+  right: 15%;
+  animation-delay: -8s;
+}
+
+.cloud-2::before {
+  width: 70px;
+  height: 70px;
+  top: -25px;
+  left: 15px;
+}
+
+.cloud-2::after {
+  width: 80px;
+  height: 60px;
+  top: -15px;
+  right: 15px;
+}
+
+.cloud-3 {
+  width: 80px;
+  height: 40px;
+  top: 35%;
+  left: 50%;
+  animation-delay: -15s;
+}
+
+.cloud-3::before {
+  width: 60px;
+  height: 60px;
+  top: -20px;
+  left: 10px;
+}
+
+.cloud-3::after {
+  width: 70px;
+  height: 50px;
+  top: -10px;
+  right: 10px;
+}
+
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  33% {
+    transform: translateX(20px) translateY(-10px);
+  }
+  66% {
+    transform: translateX(-15px) translateY(5px);
+  }
+}
+
+/* Sunlight Beam */
+.sunlight-beam {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 200px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  transform: rotate(-5deg);
+  animation: beamSweep 15s ease-in-out infinite;
+  z-index: 6;
+}
+
+@keyframes beamSweep {
+  0%, 100% {
+    opacity: 0.3;
+    transform: rotate(-5deg) translateX(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: rotate(-3deg) translateX(30px);
+  }
+}
+
+/* =====================
+   CEILING LIGHTS
+   ===================== */
+
+.ceiling-light {
+  position: absolute;
+  top: 10%;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  animation: lightFlicker 3s ease-in-out infinite;
+}
+
+.ceiling-light-1 {
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.ceiling-light-2 {
+  left: 50%;
+  animation-delay: 1s;
+}
+
+.ceiling-light-3 {
+  right: 20%;
+  animation-delay: 2s;
+}
+
+@keyframes lightFlicker {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+/* =====================
+   WELCOME CONTENT OVERLAY
+   ===================== */
+
+.welcome-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+  pointer-events: none;
+}
+
+.welcome-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.welcome-content-inner {
+  text-align: center;
+  max-width: 800px;
+  padding: var(--spacing-2xl);
+  background: rgba(26, 32, 44, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: contentAppear 1s ease-out 0.5s both;
+}
+
+@keyframes contentAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xl);
+  backdrop-filter: blur(10px);
+}
+
+.badge-icon {
+  font-size: 1.5rem;
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.welcome-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-title .highlight {
+  background: linear-gradient(135deg, #ffffff 0%, #b0e0e6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.welcome-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-actions {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.welcome-btn-primary,
+.welcome-btn-secondary {
+  min-width: 200px;
+  font-size: 1.05rem;
+  padding: 1.125rem 2.5rem;
+}
+
+.welcome-btn-primary {
+  background: var(--white);
+  color: var(--primary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-btn-primary:hover {
+  background: #f1f5f9;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.welcome-btn-secondary {
+  border-color: var(--white);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.welcome-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================
+   SCROLL INDICATOR
+   ===================== */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.875rem;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 1s ease-out 2s;
+  pointer-events: none;
+}
+
+.scroll-indicator.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 3px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.7);
+  transform: rotate(45deg);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: rotate(45deg) translateY(0);
+  }
+  50% {
+    transform: rotate(45deg) translateY(10px);
+  }
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+
+@media (max-width: 1024px) {
+  .office-window {
+    width: 70%;
+    height: 50%;
+  }
+
+  .office-desk {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .office-window {
+    width: 85%;
+    height: 45%;
+    top: 25%;
+  }
+
+  .office-desk {
+    width: 250px;
+    bottom: 12%;
+  }
+
+  .desk-monitor {
+    width: 100px;
+    height: 70px;
+  }
+
+  .welcome-content-inner {
+    padding: var(--spacing-xl);
+    margin: 0 var(--spacing-lg);
+  }
+
+  .welcome-title {
+    font-size: 2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+
+  .welcome-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .welcome-btn-primary,
+  .welcome-btn-secondary {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .office-wall-left,
+  .office-wall-right {
+    width: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .office-window {
+    width: 95%;
+    height: 40%;
+  }
+
+  .welcome-title {
+    font-size: 1.75rem;
+  }
+
+  .mountain-range {
+    clip-path: polygon(0 100%, 0 85%, 10% 75%, 20% 80%, 30% 65%, 40% 70%, 50% 55%, 60% 60%, 70% 45%, 80% 50%, 90% 35%, 100% 40%, 100% 100%);
+  }
+}
+
+/* =====================
+   ACCESSIBILITY
+   ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .mountain-view,
+  .mountain-range,
+  .cloud,
+  .sunlight-beam,
+  .ceiling-light,
+  .badge-icon,
+  .scroll-arrow {
+    animation: none;
+  }
+
+  .welcome-content {
+    transition: opacity 0.3s ease-out;
+  }
+}
+

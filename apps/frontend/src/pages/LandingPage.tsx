@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import WelcomeScene from '../components/WelcomeScene';
 import './LandingPage.css';
 
 const LandingPage: React.FC = () => {
@@ -7,6 +8,9 @@ const LandingPage: React.FC = () => {
 
   return (
     <div className="landing-page">
+      {/* First Impression - Welcome Scene */}
+      <WelcomeScene />
+
       {/* Hero Section */}
       <div className="landing-hero">
         <div className="hero-background-decoration"></div>
